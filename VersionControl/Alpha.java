@@ -5,7 +5,7 @@
 package PackageAlpha;
 
 public class Alpha {
-	private static float version = 0.00f;
+	private static float version = 1.00f;
 
 	public static void main(String[] args) {
 		System.out.println(version);
