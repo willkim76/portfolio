@@ -2,7 +2,7 @@
  * Bravo is a program that demonstrates fundemental version control
  */
 
-package PackgeAlpha;
+package VersionControl;
 
 public class Bravo {
 	private static final String version = "v1.0.0";

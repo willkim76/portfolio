@@ -2,7 +2,7 @@
  * This program is to demonstrate basic Version Control using Git/GitHub
  *
  */
-package PackageAlpha;
+package VersionControl;
 
 public class Alpha {
 	private static float version = 1.00f;
