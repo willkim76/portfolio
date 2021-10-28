@@ -5,9 +5,14 @@
 package VersionControl;
 
 public class Alpha {
-	private static float version = 1.00f;
+	private static String version = "v1.0.0";
 
 	public static void main(String[] args) {
-		System.out.println(version);
+		Alpha firstBuild = new Alpha();
+		System.out.println(firstBuild.getVersion());
+	}
+
+	public String getVersion() {
+		return version;
 	}
 }
