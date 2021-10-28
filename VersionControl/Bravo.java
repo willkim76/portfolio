@@ -8,6 +8,11 @@ public class Bravo {
 	private static final String version = "v1.0.0";
 
 	public static void main(String[] args) {
-		System.out.println(version);
+		Bravo firstBuild = new Bravo();
+		System.out.println(firstBuild.getVersion());
+	}
+
+	public String getVersion() {
+		return version;
 	}
 }
