@@ -1,5 +1,5 @@
 /*
- * Bravo is a program that demonstrates fundemental version control
+ * This program is to demonstrate basic Version Control using Git/GitHub
  */
 
 package VersionControl;
