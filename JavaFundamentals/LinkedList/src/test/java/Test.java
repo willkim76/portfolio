@@ -7,16 +7,12 @@ public class Test {
     public static void main(String[] args) {
         Test.testNodes();
         Test.testList();
-
-
     }
 
     private static void testNodes() {
         Node a = new Node("Cat");
         Node b = new Node("Dog", a);
         // Node c = new Node(b);
-
-
 
         System.out.println(a);
         System.out.println(b.getNode());
