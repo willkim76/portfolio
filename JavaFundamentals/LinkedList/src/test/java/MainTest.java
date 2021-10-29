@@ -3,10 +3,10 @@
  * the LinkedList classes.
  */
 
-public class Test {
+public class MainTest {
     public static void main(String[] args) {
-        Test.testNodes();
-        Test.testList();
+        MainTest.testNodes();
+        MainTest.testList();
     }
 
     private static void testNodes() {
@@ -25,10 +25,21 @@ public class Test {
         data.add("Link");
         data.add("is");
         data.add("broken");
-        data.add(5);
-        Object value = data.get(3);
-        System.out.println(value);
-        System.out.println(data.size());
+        data.add("random", 1 );
+
+        data2.add("first", 0);
+        data2.add("second", 0);
+
+        System.out.println("Data 2");
         System.out.println(data2.size());
+        System.out.println(data2.get(0));
+        System.out.println(data2.get(1));
+
+        System.out.println("Data 1");
+        System.out.println(data.size());
+        System.out.println(data.get(0));
+        System.out.println(data.get(1));
+        System.out.println(data.get(2));
+        System.out.println(data.get(3));
     }
 }
