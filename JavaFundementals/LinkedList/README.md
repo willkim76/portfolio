@@ -1,1 +1,0 @@
-LinkedList is a project demonstrating the concepts of fundemental data structures and alogrithms
