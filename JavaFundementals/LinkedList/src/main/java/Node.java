@@ -8,9 +8,9 @@ class Node {
     private Object object;
     private Node node;
     //Constructors
-    Node() { this(null, null); }
+    Node() { }
 
-    Node(Object object) { this(object, null); }
+    Node(Object object) { setObject(object); }
 
     Node(Object object, Node node) {
         setObject(object);
@@ -18,15 +18,23 @@ class Node {
     }
     // Copy constructor
     Node(Node that) {
-        setObject(that.getObject());
-        setNode(that.getNode());
+        this.object = that.object;
+        this.node = that.node;
     }
     // Setter and Getters
-    void setObject(Object that) { this.object = that; }
+    void setObject(Object object) { this.object = object; }
 
     Object getObject() { return this.object; }
 
-    void setNode(Node that) { this.node = that.node; }
+    void setNode(Node node) { this.node = node; }
 
     Node getNode() { return this.node; }
+
+    public boolean hasNext() {
+        if (this.getNode() != null) { return true; }
+        return false;
+    }
+
+    @Override
+    public String toString () { return object.toString(); }
 }
