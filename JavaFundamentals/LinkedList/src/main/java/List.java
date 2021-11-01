@@ -10,18 +10,21 @@ public class List {
 
     public List() { }
 
+    public List(List that) {
+        this.head = that.head;
+    }
+
     public void add(Object object) {
-        Node newNode = new Node(object, this.head);
-        this.head = newNode;
+        this.head = new Node(object, this.head);
     }
 
     public void add(Object object, int index) {
-        if (this.size() == 0) {
-            this.add(object);
+        if (this.size() == 0 ) {
+            add(object);
         } else {
             Node newNode = new Node(object,
-                getNodeAtIndex(checkIndex(index)).getNode());
-            getNodeAtIndex(index).setNode(newNode);
+                getNodeAtIndex(checkIndex(index)).getNextNode());
+            getNodeAtIndex(index).setNextNode(newNode);
         }
     }
 
@@ -29,12 +32,26 @@ public class List {
         return getNodeAtIndex(checkIndex(index)).getObject();
     }
 
-    /* TODO
+    // Removes the last instance of the Object in the list. Otherwise,
+    // returns false
     public boolean remove(Object object) {
-
+        Node pointer = head;
+        while(pointer != null) {
+            if (object.equals(pointer.getObject())) {
+                head = pointer.getNextNode();
+                return true;
+            } else if (pointer.hasNextNode()) {
+                if (object.equals(pointer.getNextNode().getObject())) {
+                    pointer.setNextNode(pointer.getNextNode().getNextNode());
+                    return true;
+                }
+            }
+            pointer = pointer.getNextNode();
+        }
         return false;
     }
 
+    /*
     public Object remove (int index) {
 
     }
@@ -49,22 +66,25 @@ public class List {
     }
 
     public int size() {
-        int toReturn = 0;
+        int size = 0;
         Node pointer = head;
         while(pointer != null) {
-            pointer = pointer.getNode();
-            toReturn++;
+            pointer = pointer.getNextNode();
+            size++;
         }
-        return toReturn;
+        return size;
     }
 
-    /* TODO
     @Override
     public String toString() {
-        String toReturn = "[";
-
+        String string = "[";
+        for(int index = 0; index < this.size(); index++) {
+            string += getNodeAtIndex(index).getObject();
+            if (index < this.size() - 1) {
+                string += ", ";
+            }
+        } return string += "]";
     }
-    */
 
     // Helper iterator method to reduce redundancy. Returns
     // the node at a specified index. Index must be valid.
@@ -73,7 +93,7 @@ public class List {
         Node pointer = head;
         while(pointer != null) {
             if (iterator-- == index) { return pointer; }
-            pointer = pointer.getNode();
+            pointer = pointer.getNextNode();
         }
         return null;
     }

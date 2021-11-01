@@ -14,7 +14,7 @@ class Node {
 
     Node(Object object, Node node) {
         setObject(object);
-        setNode(node);
+        setNextNode(node);
     }
     // Copy constructor
     Node(Node that) {
@@ -26,15 +26,11 @@ class Node {
 
     Object getObject() { return this.object; }
 
-    void setNode(Node node) { this.node = node; }
+    void setNextNode(Node node) { this.node = node; }
 
-    Node getNode() { return this.node; }
+    Node getNextNode() { return this.node; }
 
-    public boolean hasNext() {
-        if (this.getNode() != null) { return true; }
-        return false;
+    boolean hasNextNode() {
+        return this.getNextNode() != null;
     }
-
-    @Override
-    public String toString () { return object.toString(); }
 }
