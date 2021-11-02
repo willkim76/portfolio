@@ -32,8 +32,8 @@ public class List {
         return getNodeAtIndex(checkIndex(index)).getObject();
     }
 
-    // Removes the last instance of the Object in the list. Otherwise,
-    // returns false
+    // Removes the last instance of the Object in the list and returns
+    // true. Otherwise, returns false.
     public boolean remove(Object object) {
         Node pointer = head;
         while(pointer != null) {

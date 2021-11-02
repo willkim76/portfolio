@@ -20,6 +20,7 @@ public class MainTest {
     }
 
     private static void testList() {
+        String name;
         List data = new List();
         List data2 = new List();
 
