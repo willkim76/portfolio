@@ -7,6 +7,7 @@ class Node {
     //Instance variables
     private Object object;
     private Node node;
+
     //Constructors
     Node() { }
 
@@ -16,21 +17,17 @@ class Node {
         setObject(object);
         setNextNode(node);
     }
-    // Copy constructor
-    Node(Node that) {
-        this.object = that.object;
-        this.node = that.node;
-    }
+
     // Setter and Getters
-    void setObject(Object object) { this.object = object; }
+    final void setObject(Object object) { this.object = object; }
 
-    Object getObject() { return this.object; }
+    final Object getObject() { return this.object; }
 
-    void setNextNode(Node node) { this.node = node; }
+    final void setNextNode(Node node) { this.node = node; }
 
-    Node getNextNode() { return this.node; }
+    final Node getNextNode() { return this.node; }
 
-    boolean hasNextNode() {
+    final boolean hasNextNode() {
         return this.getNextNode() != null;
     }
 }

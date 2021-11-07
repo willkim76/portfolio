@@ -1,3 +1,5 @@
+import javax.sound.midi.Soundbank;
+
 /**
  * Test provides a platform to test basic functionality of
  * the LinkedList classes.
@@ -22,35 +24,24 @@ public class MainTest {
     private static void testList() {
         String name;
         List data = new List();
-        List data2 = new List();
-
-
+        System.out.println("Adding Link, is, broken");
         data.add("Link");
         data.add("is");
         data.add("broken");
+        System.out.println("Adding random at index1");
         data.add("random", 1 );
 
-        data2.add("first", 0);
-        System.out.println(data2);
-        data2.add("second", 0);
-
-        System.out.println("Data 2");
-        System.out.println(data2.size());
-        System.out.println(data2);
-
-
-        System.out.println("Data 1");
-        System.out.println(data.size());
+        System.out.println("Printing Data 1");
+        System.out.println(data);
+        System.out.println(data.remove("random"));
+        System.out.println(data.remove(2));
         System.out.println(data);
 
-        List data3 = new List(data2);
-        data3.add("third");
-
-        System.out.println("Printing data 3");
-        System.out.println(data3);
-        //System.out.println("Removing first");
-        //data3.remove("first");
-        System.out.println(data3);
+        System.out.println("Adding fire to index 1");
+        data.add("fire", 1);
+        System.out.println(data);
+        data.add("cold");
+        System.out.println(data);
 
     }
 }
