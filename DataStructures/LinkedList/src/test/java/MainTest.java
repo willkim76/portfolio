@@ -7,8 +7,9 @@ import javax.sound.midi.Soundbank;
 
 public class MainTest {
     public static void main(String[] args) {
-        MainTest.testNodes();
-        MainTest.testList();
+        //MainTest.testNodes();
+        //MainTest.testList();
+        MainTest.testNumberList();
     }
 
     private static void testNodes() {
@@ -43,5 +44,23 @@ public class MainTest {
         data.add("cold");
         System.out.println(data);
 
+    }
+
+    public static void testNumberList() {
+        List numb = new List();
+
+        numb.add("3");
+        numb.add("1");
+        numb.add("1");
+        numb.add("3");
+        numb.add("1");
+        numb.add("3");
+        System.out.println("Added numbers");
+        System.out.println(numb);
+
+        numb.remove("1");
+        numb.remove(1);
+        System.out.println("Removing 1");
+        System.out.println(numb);
     }
 }

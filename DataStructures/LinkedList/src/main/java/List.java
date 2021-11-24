@@ -29,7 +29,7 @@ public class List {
     public boolean remove(Object object) {
         Node pointer = head;
         boolean removed = false;
-        while(pointer != null) {
+        while(pointer != null && !removed) {
             if (object.equals(pointer.getObject())) {
                 head = pointer.getNextNode();
                 removed = true;
