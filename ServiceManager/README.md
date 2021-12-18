@@ -12,7 +12,7 @@ production issues where some items are not ready or missing at the projected com
 The worst case 
 scenario is when the entire process misses this fact and allows the customer to pick up their items instead 
 of notifying the customer that the items are not ready for pickup. This reflects poorly on the business and 
-most importantly inconvenient to the customer who now needs to make several trips or modify their itinerary.
+most importantly, inconvenient to the customer who now needs to make several trips or modify their itinerary.
 
 Fundamentally, the current digital invoicing system is no different from the previous carbon-less paper
 invoicing system as it requires individuals to manually ensure that the serviced items are all accounted 
