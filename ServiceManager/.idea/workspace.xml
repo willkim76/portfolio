@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9621279-d82b-4e5f-84d8-30745d4b6c66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/build/classes/java/main/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/build/classes/java/main/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/build/classes/java/test/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/build/classes/java/test/MainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/src/main/java/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/LinkedList/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/LinkedList/src/test/java/MainTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b3e1d3be-a56b-45ae-93e9-bcdce6c45d86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
-  <component name="ProjectId" id="22TCysbgiESo1Sv8rtUVUrv069J" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="22TD2O73UdrVhveQtCaZ0QNVm1B" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,11 +36,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b9621279-d82b-4e5f-84d8-30745d4b6c66" name="Changes" comment="" />
-      <created>1639852449950</created>
+      <changelist id="b3e1d3be-a56b-45ae-93e9-bcdce6c45d86" name="Changes" comment="" />
+      <created>1639852476109</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1639852449950</updated>
+      <updated>1639852476109</updated>
     </task>
     <servers />
   </component>
