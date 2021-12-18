@@ -3,31 +3,37 @@
  * singly linked data structure types.
  * @author William Kim
  */
+
 class Node {
     //Instance variables
     private Object object;
     private Node node;
 
     //Constructors
-    Node() { }
+    public Node() { }
 
-    Node(Object object) { setObject(object); }
+    public Node(Object object) { setObject(object); }
 
-    Node(Object object, Node node) {
+    public Node(Object object, Node node) {
         setObject(object);
         setNextNode(node);
     }
 
     // Setter and Getters
-    final void setObject(Object object) { this.object = object; }
+    public void setObject(Object object) { this.object = object; }
 
-    final Object getObject() { return this.object; }
+    public Object getObject() { return this.object; }
 
-    final void setNextNode(Node node) { this.node = node; }
+    public void setNextNode(Node node) { this.node = node; }
 
-    final Node getNextNode() { return this.node; }
+    public Node getNextNode() { return this.node; }
 
-    final boolean hasNextNode() {
+    public boolean hasNextNode() {
         return this.getNextNode() != null;
+    }
+
+    @Override
+    public String toString() {
+        return object.toString();
     }
 }

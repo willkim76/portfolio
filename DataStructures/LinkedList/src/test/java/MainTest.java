@@ -1,4 +1,3 @@
-import javax.sound.midi.Soundbank;
 
 /**
  * Test provides a platform to test basic functionality of
@@ -8,8 +7,8 @@ import javax.sound.midi.Soundbank;
 public class MainTest {
     public static void main(String[] args) {
         //MainTest.testNodes();
-        //MainTest.testList();
-        MainTest.testNumberList();
+        MainTest.testList();
+        //MainTest.testNumberList();
     }
 
     private static void testNodes() {
@@ -19,7 +18,7 @@ public class MainTest {
 
         System.out.println(a);
         System.out.println(b.getNextNode());
-        //System.out.println(c);
+        System.out.println(b);
     }
 
     private static void testList() {
