@@ -20,7 +20,7 @@ for. This is problematic as this process relies on an individuals' memory to com
 where an individual may have to process up to 60 invoices a day while having several responsibilities on a 
 given day.
 
-### The Solution:
+### Potential Solution:
 I propose a digital invoicing system that incorporates this check. Instead of an invoice be a passive record 
 of items within a database. I propose that an invoice to have an active realtime tracking of the completion 
 of the items within a given invoice using hardware such as a barcode scanner. A realtime tracker of invoices 
