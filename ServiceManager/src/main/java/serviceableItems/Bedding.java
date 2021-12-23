@@ -11,8 +11,8 @@ import types.Serviceable;
 public class Bedding implements Serviceable {
     private BeddingType beddingType;
     private BeddingSize beddingSize;
-    private Material material;
     private boolean isServiced;
+    private Material material;
 
     private Bedding() { }
 
@@ -21,9 +21,6 @@ public class Bedding implements Serviceable {
     public BeddingSize getBeddingSize() { return this.beddingSize; }
 
     public Material getMaterial() { return this.material; }
-
-    @Override
-    public void service() { this.isServiced = true; }
 
     @Override
     public boolean isServiced() {

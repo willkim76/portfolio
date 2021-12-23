@@ -7,6 +7,8 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private String address;
+
     private ZonedDateTime joinDate;
 
     private List<String> invoiceIds;

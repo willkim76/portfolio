@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e1d3be-a56b-45ae-93e9-bcdce6c45d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServiceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServiceableItems/Bedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceableItems/Bedding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServiceableItems/Garment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceableItems/Garment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/BeddingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/BeddingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceableItems/Bedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceableItems/Bedding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceableItems/Garment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceableItems/Garment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/types/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/types/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/Invoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/types/Serviceable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/Serviceable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Sizeable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
