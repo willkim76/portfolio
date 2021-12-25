@@ -9,12 +9,17 @@ import types.Serviceable;
  * Defines the characteristics of a bedding article that is serviceable
  */
 public class Bedding implements Serviceable {
-    private BeddingType beddingType;
-    private BeddingSize beddingSize;
+    private final BeddingType beddingType;
+    private final BeddingSize beddingSize;
     private boolean isServiced;
-    private Material material;
+    private final Material material;
 
-    private Bedding() { }
+    private Bedding(Builder builder) {
+        this.beddingType = builder.beddingType;
+        this.beddingSize = builder.beddingSize;
+        this.isServiced = false;
+        this.material = builder.material;
+    }
 
     public BeddingType getBeddingType() { return this.beddingType; }
 
@@ -42,7 +47,6 @@ public class Bedding implements Serviceable {
         private BeddingType beddingType;
         private BeddingSize beddingSize;
         private Material material;
-        private boolean isService;
 
         public Builder withBeddingType(BeddingType beddingType) {
             this.beddingType = beddingType;
@@ -60,12 +64,7 @@ public class Bedding implements Serviceable {
         }
 
         public Bedding build() {
-            Bedding bedding = new Bedding();
-            bedding.beddingType = beddingType;
-            bedding.beddingSize = beddingSize;
-            bedding.material = material;
-
-            return bedding;
+            return new Bedding(this);
         }
     }
 }

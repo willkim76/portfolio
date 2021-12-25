@@ -1,0 +1,69 @@
+@startuml
+class CustomerDao {
+}
+class Bedding {
+- BeddingType beddingType
+- BeddingSize beddingSize
+- boolean isServiced
+- Material material
++ BeddingType getBeddingType()
++ BeddingSize getBeddingSize()
++ Material getMaterial()
++ boolean isServiced()
++ String toString()
+}
+class Invoice {
+- {static} long invoiceId
+- Customer customer
+- String rackId
+- Price price
+- List<Serviceable> itemsToService
+- ZonedDateTime dropDateTime
+- ZonedDateTime pickupDateTime
+- ZonedDateTime completedDateTime
+}
+interface Serviceable {
+~ boolean isServiced()
+}
+interface Dao {
+~ List<T> getAll()
+~ T get()
+~ void save(T)
+~ void update(T,String[])
+~ void delete(T)
+}
+class InvoiceDao {
+}
+class Garment {
+- GarmentType garmentType
+- Material material
+- boolean isServiced
++ boolean isServiced()
+}
+class App {
+}
+class ServiceManager {
++ {static} void main(String[])
+}
+class Price {
+- BigDecimal price
+}
+class Customer {
+- String firstName
+- String lastName
+- String phoneNumber
+- String address
+- ZonedDateTime joinDate
+- List<String> invoiceIds
+}
+
+Serviceable <|.. Bedding
+Serviceable <|.. Garment
+Dao <|.. CustomerDao
+Dao <|.. InvoiceDao
+
+Invoice *-- Serviceable
+Invoice *-- Customer
+Invoice *-- Price
+
+@enduml

@@ -20,7 +20,7 @@ public class Invoice {
 
     private Invoice() { }
 
-    public static class Builder() {
+    public static class Builder {
         private Customer customer;
         private String rackId;
         private Price price;
