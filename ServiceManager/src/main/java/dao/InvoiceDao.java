@@ -3,6 +3,7 @@ package dao;
 import types.Invoice;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InvoiceDao implements Dao<Invoice> {
@@ -12,11 +13,14 @@ public class InvoiceDao implements Dao<Invoice> {
 
     @Override
     public List<Invoice> getAll() {
+        List<Invoice> invoices = new ArrayList<>();
+
         return null;
     }
 
     @Override
-    public Invoice get(String id) {
+    public Invoice get(String invoiceId) {
+
         return null;
     }
 

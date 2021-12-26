@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Invoice {
-    private static long invoiceId;
 
+    private String invoiceId;
     private Customer customer;
     private String rackId;
     private Price price;
@@ -16,7 +16,6 @@ public class Invoice {
     private ZonedDateTime dropDateTime;
     private ZonedDateTime pickupDateTime;
     private ZonedDateTime completedDateTime;
-
 
     private Invoice() { }
 
@@ -53,7 +52,4 @@ public class Invoice {
             return this;
         }
     }
-
-
-
 }

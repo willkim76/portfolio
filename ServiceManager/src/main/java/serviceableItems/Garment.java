@@ -9,7 +9,10 @@ public class Garment implements Serviceable {
     private Material material;
     private boolean isServiced;
 
-    private Garment() { }
+    private Garment(Builder builder) {
+        this.garmentType = builder.garmentType;
+        this.material = builder.material;
+    }
 
     @Override
     public boolean isServiced() {
@@ -20,7 +23,7 @@ public class Garment implements Serviceable {
         private GarmentType garmentType;
         private Material material;
 
-        public Builder withGarmetType(GarmentType garmentType) {
+        public Builder withGarmentType(GarmentType garmentType) {
             this.garmentType = garmentType;
             return this;
         }
@@ -31,11 +34,7 @@ public class Garment implements Serviceable {
         }
 
         public Garment build() {
-            Garment garment = new Garment();
-            garment.garmentType = garmentType;
-            garment.material = material;
-
-            return garment;
+          return new Garment(this);
         }
     }
 }
