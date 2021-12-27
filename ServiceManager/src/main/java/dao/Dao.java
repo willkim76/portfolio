@@ -2,6 +2,10 @@ package dao;
 
 import java.util.List;
 
+/**
+ * CRUD behavior for daos to implement
+ * @param <T>
+ */
 public interface Dao<T> {
 
     List<T> getAll();

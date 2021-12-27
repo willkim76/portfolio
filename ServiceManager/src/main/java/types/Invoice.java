@@ -19,6 +19,38 @@ public class Invoice {
 
     private Invoice() { }
 
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public String getRackId() {
+        return rackId;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public List<Serviceable> getItemsToService() {
+        return itemsToService;
+    }
+
+    public ZonedDateTime getDropDateTime() {
+        return dropDateTime;
+    }
+
+    public ZonedDateTime getPickupDateTime() {
+        return pickupDateTime;
+    }
+
+    public ZonedDateTime getCompletedDateTime() {
+        return completedDateTime;
+    }
+
     public static class Builder {
         private Customer customer;
         private String rackId;
