@@ -21,7 +21,7 @@ where an individual may have to process up to 60 invoices a day while having sev
 given day.
 
 ### Potential Solution:
-I propose a digital invoicing system that incorporates this check. Instead of an invoice be a passive record 
-of items within a database. I propose that an invoice to have an active realtime tracking of the completion 
-of the items within a given invoice using hardware such as a barcode scanner. A realtime tracker of invoices 
-due for the day can also be displayed for auxiliary tasks. I will also be implementing an Invoicing System. 
+I propose an invoicing system that incorporates this check explicitly. Instead of an invoice be a passive 
+record of items within a database. I propose that an invoice to have an active realtime tracking of the 
+completion of the items within a given invoice using hardware such as a barcode scanner. A realtime tracker 
+of invoices due for the day can also be displayed for auxiliary tasks. 
