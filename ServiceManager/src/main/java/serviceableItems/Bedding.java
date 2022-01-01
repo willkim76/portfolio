@@ -6,7 +6,7 @@ import types.Material;
 import types.Serviceable;
 
 /**
- * Defines the characteristics of a bedding article that is serviceable
+ * Defines the characteristics of a Bedding type that is Serviceable
  */
 public class Bedding implements Serviceable {
     private final BeddingType beddingType;

@@ -1,10 +1,10 @@
-package dao;
+package daos;
 
 import java.util.List;
 
 /**
- * CRUD behavior for daos to implement
- * @param <T>
+ * Defines the CRUD behavior for data access objects to implement
+ * @param <T> The type parsed between the service layer and the persistent layer
  */
 public interface Dao<T> {
 

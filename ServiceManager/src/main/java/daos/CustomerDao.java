@@ -1,4 +1,4 @@
-package dao;
+package daos;
 
 import types.Customer;
 
@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * This class is the interface between the service layer and the persistent layer.
+ * This class is the interface between the service layer and the persistent layer
+ * for a Customer type
  */
 public class CustomerDao implements Dao<Customer> {
     private File customerFile;

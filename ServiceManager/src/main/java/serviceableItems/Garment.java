@@ -4,6 +4,9 @@ import types.GarmentType;
 import types.Material;
 import types.Serviceable;
 
+/**
+ * Defines the characteristics of a Garment type that is Serviceable
+ */
 public class Garment implements Serviceable {
     private GarmentType garmentType;
     private Material material;

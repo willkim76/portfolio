@@ -1,4 +1,4 @@
-package dao;
+package daos;
 
 import types.Invoice;
 
@@ -6,6 +6,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is the interface between the service layer and the persistent layer
+ * for an Invoice type
+ */
 public class InvoiceDao implements Dao<Invoice> {
     private File invoiceFile;
 

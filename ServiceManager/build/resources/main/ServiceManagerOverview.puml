@@ -2,43 +2,46 @@
 class CustomerDao {
 }
 class Bedding {
-- BeddingType beddingType
-- BeddingSize beddingSize
-- boolean isServiced
-- Material material
-+ BeddingType getBeddingType()
-+ BeddingSize getBeddingSize()
-+ Material getMaterial()
-+ boolean isServiced()
-+ String toString()
+- beddingType : BeddingType
+- beddingSize : BeddingSize
+- isServiced : boolean
+- material : Material
++ getBeddingType() : BeddingType
++ getBeddingSize() : BeddingSize
++ getMaterial() : Material
++ isServiced() : boolean
++ toString() : String
 }
 class Invoice {
-- {static} long invoiceId
-- Customer customer
-- String rackId
-- Price price
-- List<Serviceable> itemsToService
-- ZonedDateTime dropDateTime
-- ZonedDateTime pickupDateTime
-- ZonedDateTime completedDateTime
+- invoiceId : String
+- rackId : String
+- price : Price
+- itemsToService : List<Serviceable>
+- dropDateTime : ZonedDateTime
+- pickupDateTime : ZonedDateTime
+- completedDateTime : ZonedDateTime
+}
+class InvoiceHistory {
+- customerId : String
+- invoices : List<Invoice>
 }
 interface Serviceable {
-~ boolean isServiced()
+~ isServiced() : boolean
 }
 interface Dao<T> {
-~ List<T> getAll()
-~ T get()
-~ void save(T)
-~ void update(T,String[])
-~ void delete(T)
+~ getAll() : List<T>
+~ get() : T
+~ save(T) : void
+~ update(T,String[]) : void
+~ delete(T) : void
 }
 class InvoiceDao {
 }
 class Garment {
-- GarmentType garmentType
-- Material material
-- boolean isServiced
-+ boolean isServiced()
+- garmentType : GarmentType
+- material : Material
+- isServiced : boolean
++ isServiced() : boolean
 }
 class App {
 }
@@ -46,25 +49,28 @@ class ServiceManager {
 + {static} void main(String[])
 }
 class Price {
-- BigDecimal price
+- price : BigDecimal
 }
 class Customer {
-- String firstName
-- String lastName
-- String phoneNumber
-- String address
-- ZonedDateTime joinDate
-- List<String> invoiceIds
+- customerId : String
+- firstName : String
+- lastName : String
+- phoneNumber : String
+- address : String
+- invoiceHistory : InvoiceHistory
+- joinDate : ZonedDateTime
 }
 
 Serviceable <|.. Bedding
 Serviceable <|.. Garment
 Dao <|.. CustomerDao
 Dao <|.. InvoiceDao
+Dao <|.. InvoiceHistoryDao
 
 Invoice *-- Serviceable
-Invoice *-- Customer
 Invoice *-- Price
+Customer *-- InvoiceHistory
+InvoiceHistory *-- Invoice
 
-ServiceManager o-- App
+ServiceManager <-- App
 @enduml

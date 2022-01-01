@@ -7,7 +7,6 @@ import java.util.List;
 public class Invoice {
 
     private String invoiceId;
-    private Customer customer;
     private String rackId;
     private Price price;
 
@@ -21,10 +20,6 @@ public class Invoice {
 
     public String getInvoiceId() {
         return invoiceId;
-    }
-
-    public Customer getCustomer() {
-        return customer;
     }
 
     public String getRackId() {
@@ -52,18 +47,12 @@ public class Invoice {
     }
 
     public static class Builder {
-        private Customer customer;
         private String rackId;
         private Price price;
         private List<Serviceable> itemsToService;
 
         private ZonedDateTime dropDateTime;
         private ZonedDateTime pickupDateTime;
-
-        public Builder withCustomer(Customer customer) {
-            this.customer = customer;
-            return this;
-        }
 
         public Builder withRackId(String rackId) {
             this.rackId = rackId;

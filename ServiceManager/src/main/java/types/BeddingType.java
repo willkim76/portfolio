@@ -1,5 +1,8 @@
 package types;
 
+/**
+ *
+ */
 public enum BeddingType {
     BLANKET,
     COMFORTER,

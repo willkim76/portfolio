@@ -1,5 +1,6 @@
-import dao.CustomerDao;
-import dao.InvoiceDao;
+import daos.CustomerDao;
+import daos.InvoiceDao;
+import daos.InvoiceHistoryDao;
 
 import java.io.File;
 
@@ -18,4 +19,11 @@ public class App {
                 new File("./src/main/java/data/invoice.csv")
         );
     }
+
+    public static InvoiceHistoryDao getInvoiceHistoryDao() {
+        return new InvoiceHistoryDao(
+                new File("./src/main/java/data/invoicehistory.csv")
+        );
+    }
+
 }
