@@ -57,7 +57,6 @@ class Customer {
 - lastName : String
 - phoneNumber : String
 - address : String
-- invoiceHistory : InvoiceHistory
 - joinDate : ZonedDateTime
 }
 
@@ -67,9 +66,10 @@ Dao <|.. CustomerDao
 Dao <|.. InvoiceDao
 Dao <|.. InvoiceHistoryDao
 
+Customer -- InvoiceHistory
+
 Invoice *-- Serviceable
 Invoice *-- Price
-Customer *-- InvoiceHistory
 InvoiceHistory *-- Invoice
 
 ServiceManager <-- App

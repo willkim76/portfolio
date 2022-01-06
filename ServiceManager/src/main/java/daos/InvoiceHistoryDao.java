@@ -30,12 +30,12 @@ public class InvoiceHistoryDao implements Dao<InvoiceHistoryDao> {
     }
 
     @Override
-    public void update(InvoiceHistoryDao invoiceHistoryDao, String[] params) {
-
+    public boolean update(InvoiceHistoryDao invoiceHistoryDao, String[] params) {
+        return false;
     }
 
     @Override
-    public void delete(InvoiceHistoryDao invoiceHistoryDao) {
-
+    public boolean delete(InvoiceHistoryDao invoiceHistoryDao) {
+        return false;
     }
 }

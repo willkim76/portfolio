@@ -3,7 +3,7 @@ package daos;
 import java.util.List;
 
 /**
- * Defines the CRUD behavior for data access objects to implement
+ * Defines the CRUD behavior for ServiceManager data access objects
  * @param <T> The type parsed between the service layer and the persistent layer
  */
 public interface Dao<T> {
@@ -14,7 +14,7 @@ public interface Dao<T> {
 
     void save(T t);
 
-    void update(T t, String[] params);
+    boolean update(T t, String[] params);
 
-    void delete(T t);
+    boolean delete(T t);
 }

@@ -4,6 +4,7 @@ import types.Customer;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,30 +18,40 @@ public class CustomerDao implements Dao<Customer> {
 
     public CustomerDao(File customerFile) { this.customerFile = customerFile; }
 
+    /**
+     * Returns
+     * @return
+     */
     @Override
     public List<Customer> getAll() {
         List<Customer> customers = new ArrayList<>();
         List<String> customerFile = readInvoiceFiles();
         for (String customerLine : customerFile) {
             String[] customerData = customerLine.split(",");
-            String[] fullName = customerData[1].split(" ");
+            String[] fullName = customerData[0].split(" ");
             customers.add(
                     new Customer(
-                        fullName[0],
-                        fullName[1],
-                        customerData[2],
-                        customerData[3]
+                            fullName[0],
+                            fullName[1],
+                            customerData[1],
+                            customerData[2],
+                            ZonedDateTime.parse(customerData[3])
                     )
             );
         }
         return customers;
     }
 
+    /**
+     * Returns a Customer with a customerId
+     * @param id the customerId
+     * @return Customer
+     */
     @Override
     public Customer get(String id) {
         List<Customer> customers = this.getAll();
         for (Customer customer : customers) {
-            if (customer.getPhoneNumber().equals(id)) { return customer; }
+            if (customer.getCustomerId().equals(id)) { return customer; }
         }
         return null;
     }
@@ -48,31 +59,28 @@ public class CustomerDao implements Dao<Customer> {
     // TODO
     @Override
     public void save(Customer customer) {
-        try (FileWriter fileWriter = new FileWriter(customerFile, true)) {
-            String cString = customer.toString();
-            char[] charArray = cString.substring(1, cString.length() - 1).toCharArray();
-            for (char c : charArray) { fileWriter.write(c); }
-            fileWriter.write('\n');
-            fileWriter.close();
-        } catch (Exception e) {
-            System.err.println("Could not write to file!");
+        writeToFile(customer, true);
+    }
+
+    // TODO
+    @Override
+    public boolean update(Customer customer, String[] params) {
+        return false;
+    }
+
+    // FIXME Does not delete when attempting to remove last customer (EDGE CASE)
+    @Override
+    public boolean delete(Customer customer) {
+        List<Customer> customers = this.getAll();
+        if (!customers.remove(customer)) { return false; }
+        for (Customer customerRW : customers) {
+            writeToFile(customerRW, false);
         }
-    }
-
-    // TODO
-    @Override
-    public void update(Customer customer, String[] params) {
-
-    }
-
-    // TODO
-    @Override
-    public void delete(Customer customer) {
-
+        return true;
     }
 
     /**
-     * Helper method that reads
+     * Helper method that reads from File and returns
      * @return
      */
     private List<String> readInvoiceFiles() {
@@ -88,5 +96,21 @@ public class CustomerDao implements Dao<Customer> {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Helper method that writes to File
+     * @param customer
+     * @param overwrite
+     */
+    private void writeToFile(Customer customer, boolean overwrite) {
+        try (FileWriter fileWriter = new FileWriter(customerFile, overwrite)) {
+            String cString = customer.toString().replaceAll(", ", ",");
+            char[] charArray = cString.substring(1, cString.length() - 1).toCharArray();
+            for (char c : charArray) { fileWriter.write(c); }
+            fileWriter.write('\n');
+        } catch (Exception e) {
+            System.err.println("Could not write to file!");
+        }
     }
 }

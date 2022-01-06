@@ -34,12 +34,12 @@ public class InvoiceDao implements Dao<Invoice> {
     }
 
     @Override
-    public void update(Invoice invoice, String[] params) {
-
+    public boolean update(Invoice invoice, String[] params) {
+        return false;
     }
 
     @Override
-    public void delete(Invoice invoice) {
-
+    public boolean delete(Invoice invoice) {
+        return false;
     }
 }

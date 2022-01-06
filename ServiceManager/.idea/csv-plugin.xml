@@ -24,7 +24,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\src\test\java\data\customer.csv">
+        <entry key="\src\test\java\data\customertest.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

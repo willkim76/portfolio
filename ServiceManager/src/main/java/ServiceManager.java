@@ -2,6 +2,11 @@ import daos.CustomerDao;
 import daos.InvoiceDao;
 import daos.InvoiceHistoryDao;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Scanner;
+
 public class ServiceManager {
     CustomerDao customerDao;
     InvoiceDao invoiceDao;
@@ -14,15 +19,26 @@ public class ServiceManager {
     }
 
     public static void main(String[] args) {
-        // TODO Prompt User to UI
-        // TODO Display Options
-        // TODO Print Data
-
-
+        try {
+            ServiceManager serviceManager = ServiceManager.initialize();
+            serviceManager.promptUser();
+        } catch (Exception e) {
+            System.err.println("");
+        }
     }
 
-    private void introduction() {
+    private static ServiceManager initialize() {
         System.out.println("Service Manager Initializing.");
+        return new ServiceManager(
+                        App.getCustomerDao(),
+                        App.getInvoiceDao(),
+                        App.getInvoiceHistoryDao()
+        );
+    }
+
+    private void promptUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Commands: ");
 
     }
 }
