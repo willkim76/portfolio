@@ -3,15 +3,17 @@ package daos;
 import types.Customer;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * This class is the interface between the service layer and the persistent layer
- * for a Customer type
+ * CustomerDao defines the CRUD operations between the service layer and the persistent layer
+ * for the Customer type
  */
 public class CustomerDao implements Dao<Customer> {
     private File customerFile;
@@ -19,20 +21,21 @@ public class CustomerDao implements Dao<Customer> {
     public CustomerDao(File customerFile) { this.customerFile = customerFile; }
 
     /**
-     * Returns
-     * @return
+     * Returns a list of Customers that exist within the persistent layer
+     * @return List of Customers
+     * @throws FileNotFoundException
      */
     @Override
-    public List<Customer> getAll() {
+    public List<Customer> getAll() throws FileNotFoundException {
         List<Customer> customers = new ArrayList<>();
-        List<String> customerFile = readInvoiceFiles();
+        List<String> customerFile = readFile();
         for (String customerLine : customerFile) {
             String[] customerData = customerLine.split(",");
-            String[] fullName = customerData[0].split(" ");
+            String[] customerName = customerData[0].split(" ");
             customers.add(
                     new Customer(
-                            fullName[0],
-                            fullName[1],
+                            customerName[0],
+                            customerName[1],
                             customerData[1],
                             customerData[2],
                             ZonedDateTime.parse(customerData[3])
@@ -43,12 +46,13 @@ public class CustomerDao implements Dao<Customer> {
     }
 
     /**
-     * Returns a Customer with a customerId
-     * @param id the customerId
-     * @return Customer
+     * Returns a Customer with a customerId if within persistent layer
+     * @param id String customerId
+     * @return Customer or null for invalid customerId
+     * @throws FileNotFoundException
      */
     @Override
-    public Customer get(String id) {
+    public Customer get(String id) throws FileNotFoundException {
         List<Customer> customers = this.getAll();
         for (Customer customer : customers) {
             if (customer.getCustomerId().equals(id)) { return customer; }
@@ -56,61 +60,108 @@ public class CustomerDao implements Dao<Customer> {
         return null;
     }
 
-    // TODO
+    /**
+     * Adds a Customer to the persistent layer
+     * @param customer Customer to add to File
+     * @throws IOException
+     */
     @Override
-    public void save(Customer customer) {
-        writeToFile(customer, true);
+    public void save(Customer customer) throws IOException {
+        this.writeToFile(customer, true);
     }
 
-    // TODO
+    /**
+     * Removes a Customer from the persistent layer
+     * @param customer Customer to move from File
+     * @return boolean if the Customer was removed
+     * @throws IOException
+     */
     @Override
-    public boolean update(Customer customer, String[] params) {
-        return false;
-    }
-
-    // FIXME Does not delete when attempting to remove last customer (EDGE CASE)
-    @Override
-    public boolean delete(Customer customer) {
+    public boolean delete(Customer customer) throws IOException {
         List<Customer> customers = this.getAll();
         if (!customers.remove(customer)) { return false; }
-        for (Customer customerRW : customers) {
-            writeToFile(customerRW, false);
-        }
+        if (customers.size() == 0) { customers.add(null); }
+        for (Customer customerRW : customers) { this.writeToFile(customerRW, false); }
         return true;
     }
 
     /**
-     * Helper method that reads from File and returns
-     * @return
+     * Updates the persistent layer by updating the Customers fields
+     * @param customer Customer to update
+     * @param params String[] of new Customer parameters
+     * @return boolean if the Customer was updated
+     * @throws IOException
      */
-    private List<String> readInvoiceFiles() {
-        List<String> fileLines = new ArrayList<>();
-        try (Scanner scanner = new Scanner(customerFile)) {
-            while (scanner.hasNextLine()) {
-                fileLines.add(scanner.nextLine());
-            }
-            scanner.close();
-            return fileLines;
-        } catch (Exception e) {
-            System.err.println("Cannot not read file at specified location!");
-            e.printStackTrace();
-        }
-        return null;
+    @Override
+    public boolean update(Customer customer, String[] params) throws IOException {
+        List<Customer> customers = this.getAll();
+        if (!customers.remove(customer)) { return false; }
+        String[] customerFields = this.customerFieldsToUpdate(customer, params);
+        customers.add(
+                new Customer(
+                        customerFields[0].split(" ")[0],
+                        customerFields[0].split(" ")[1],
+                        customerFields[1],
+                        customerFields[2],
+                        ZonedDateTime.parse(customerFields[3])
+                )
+        );
+        for (Customer customerRW : customers) { this.writeToFile(customerRW, false); }
+        return true;
     }
 
     /**
-     * Helper method that writes to File
-     * @param customer
-     * @param overwrite
+     * Helper method that performs the reading operation on the customerFile
+     * @return List of String
+     * @throws FileNotFoundException
      */
-    private void writeToFile(Customer customer, boolean overwrite) {
-        try (FileWriter fileWriter = new FileWriter(customerFile, overwrite)) {
-            String cString = customer.toString().replaceAll(", ", ",");
-            char[] charArray = cString.substring(1, cString.length() - 1).toCharArray();
-            for (char c : charArray) { fileWriter.write(c); }
-            fileWriter.write('\n');
-        } catch (Exception e) {
-            System.err.println("Could not write to file!");
+    private List<String> readFile() throws FileNotFoundException {
+        List<String> fileLines = new ArrayList<>();
+        Scanner scanner = new Scanner(customerFile);
+        while (scanner.hasNextLine()) { fileLines.add(scanner.nextLine()); }
+        scanner.close();
+        return fileLines;
+    }
+
+    /**
+     * Helper method that performs the writing operation on the customerFile
+     * @param customer Customer to add to File or null when to clear the File
+     * @param append boolean argument to append or overwrite File
+     * @throws IOException
+     */
+    private void writeToFile(Customer customer, boolean append) throws IOException {
+        FileWriter fileWriter = new FileWriter(customerFile, append);
+        if (customer == null) { fileWriter.write(""); return; }
+        String customerStr = customer.toString().replaceAll(", ", ",");
+        fileWriter.write(customerStr.substring(1, customerStr.length() - 1));
+        fileWriter.write('\n');
+        fileWriter.close();
+    }
+
+    /**
+     * Helper method that returns a String[] of Customer fields to update
+     * @param customer Customer under evaluation
+     * @param params String[] fields under evaluation
+     * @return String[] of Customer fields
+     */
+    private String[] customerFieldsToUpdate(Customer customer, String[] params) {
+        String cStr = customer.toString().replaceAll(", ", ",");
+        String[] cFields = cStr.substring(1, cStr.length() - 1).split(",");
+
+        String[] name = cFields[0].split(" ");
+        for (int i = 0; i < name.length; i++) {
+            name[i] = params[i].equals("") ? name[i] : params[i];
         }
+        String newName = "";
+        for (int i = 0; i < name.length; i++) {
+            newName = newName.concat(name[i]).concat(" ");
+        }
+
+        cFields[0] = newName.trim();
+        for (int i = 1; i < cFields.length; i++) {
+            cFields[i] = params[i].equals("") ? cFields[i] : params[i];
+        }
+
+        return cFields;
     }
 }

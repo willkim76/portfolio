@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="daos.CustomerDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-06T06:50:00" hostname="DESKTOP-78SPBBI" time="0.03">
+<testsuite name="daos.CustomerDaoTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-01-07T06:02:13" hostname="DESKTOP-78SPBBI" time="0.063">
   <properties/>
-  <testcase name="save_newCustomer_savesNewCustomer()" classname="daos.CustomerDaoTest" time="0.03"/>
+  <testcase name="save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer()" classname="daos.CustomerDaoTest" time="0.041"/>
+  <testcase name="save_newCustomerWithNonEmptyFile_savesNewCustomerToPersistentLayer()" classname="daos.CustomerDaoTest" time="0.007"/>
+  <testcase name="get_withValidCustomerId_returnsCustomer()" classname="daos.CustomerDaoTest" time="0.002"/>
+  <testcase name="get_withInvalidCustomerId_returnsNull()" classname="daos.CustomerDaoTest" time="0.002"/>
+  <testcase name="delete_withExistingCustomer_removesCustomerFromPersistentLayer()" classname="daos.CustomerDaoTest" time="0.003"/>
+  <testcase name="delete_withNonExistingCustomer_persistentLayerUnchanged()" classname="daos.CustomerDaoTest" time="0.001"/>
+  <testcase name="update_existingCustomerFirstName_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.005"/>
+  <testcase name="update_nonExistingCustomer_persistentLayerUnchanged()" classname="daos.CustomerDaoTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

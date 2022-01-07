@@ -1,5 +1,6 @@
 package daos;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -8,13 +9,13 @@ import java.util.List;
  */
 public interface Dao<T> {
 
-    List<T> getAll();
+    List<T> getAll() throws Exception;
 
-    T get(String id);
+    T get(String id) throws Exception;
 
-    void save(T t);
+    void save(T t) throws Exception;
 
-    boolean update(T t, String[] params);
+    boolean update(T t, String[] params) throws Exception;
 
-    boolean delete(T t);
+    boolean delete(T t) throws Exception;
 }
