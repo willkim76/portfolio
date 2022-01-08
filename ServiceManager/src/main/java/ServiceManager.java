@@ -23,7 +23,8 @@ public class ServiceManager {
             ServiceManager serviceManager = ServiceManager.initialize();
             serviceManager.promptUser();
         } catch (Exception e) {
-            System.err.println("");
+            System.err.println("Service Manger Failed to Initialize!");
+            e.printStackTrace();
         }
     }
 
@@ -38,7 +39,13 @@ public class ServiceManager {
 
     private void promptUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Commands: ");
+        System.out.println("Available Commands: ");
 
+        String command = "%";
+        while (command.toUpperCase().charAt(0) != 'Q') {
+            System.out.println("Type command: ");
+            command = scanner.nextLine();
+
+        }
     }
 }

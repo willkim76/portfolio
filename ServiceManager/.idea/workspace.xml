@@ -5,29 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e1d3be-a56b-45ae-93e9-bcdce6c45d86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/daos/CustomerDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/daos/CustomerDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/daos/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/daos/Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/daos/InvoiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/daos/InvoiceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/daos/InvoiceHistoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/daos/InvoiceHistoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/daos/CustomerDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/daos/CustomerDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/daos.CustomerDaoTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/daos.CustomerDaoTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/daos.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/daos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-daos.CustomerDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-daos.CustomerDaoTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServiceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/daos/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daos/CustomerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daos/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daos/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/customer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/types/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ServiceManagerOverview.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ServiceManagerOverview.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/daos/CustomerDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/daos/CustomerDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/data/customertest.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/daos/InvoiceHistoryDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/daos/InvoiceHistoryDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/customertest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/customertest.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/Alpha.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/Alpha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/Bravo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/Bravo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VersionControl/VersionControl.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,7 @@
       <recent name="C:\Backend\portfolio\ServiceManager\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CustomerDaoTest">
+  <component name="RunManager" selected="Gradle.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer">
     <configuration name="CustomerDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -115,12 +112,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CustomerDaoTest.delete_withExistingCustomer_removesCustomer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomerDaoTest.save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.delete_withExistingCustomer_removesCustomer&quot;" />
+        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -136,12 +133,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CustomerDaoTest.delete_withNonExistingCustomer_persistentLayerUnchanged" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomerDaoTest.update_existingCustomerFirstName_updatesCustomerInPersistentLayer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.delete_withNonExistingCustomer_persistentLayerUnchanged&quot;" />
+        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.update_existingCustomerFirstName_updatesCustomerInPersistentLayer&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -157,12 +154,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CustomerDaoTest.update_existingCustomerFirstName_updatedCustomerName" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.update_existingCustomerFirstName_updatedCustomerName&quot;" />
+        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -178,12 +175,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CustomerDaoTest.update_nonExistingCustomer_doesNotUpdate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomerDaoTest.update_existingCustomerPhoneNumber_updatesCustomerInPersistentLayer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.update_nonExistingCustomer_doesNotUpdate&quot;" />
+        <option name="scriptParameters" value="--tests &quot;daos.CustomerDaoTest.update_existingCustomerPhoneNumber_updatesCustomerInPersistentLayer&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -201,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer" />
         <item itemvalue="Gradle.CustomerDaoTest" />
-        <item itemvalue="Gradle.CustomerDaoTest.update_nonExistingCustomer_doesNotUpdate" />
-        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerFirstName_updatedCustomerName" />
-        <item itemvalue="Gradle.CustomerDaoTest.delete_withNonExistingCustomer_persistentLayerUnchanged" />
-        <item itemvalue="Gradle.CustomerDaoTest.delete_withExistingCustomer_removesCustomer" />
+        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerFirstName_updatesCustomerInPersistentLayer" />
+        <item itemvalue="Gradle.CustomerDaoTest.save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer" />
+        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerPhoneNumber_updatesCustomerInPersistentLayer" />
       </list>
     </recent_temporary>
   </component>

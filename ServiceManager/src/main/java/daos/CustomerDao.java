@@ -20,6 +20,7 @@ public class CustomerDao implements Dao<Customer> {
 
     public CustomerDao(File customerFile) { this.customerFile = customerFile; }
 
+    // FIXME Need to segregate
     /**
      * Returns a list of Customers that exist within the persistent layer
      * @return List of Customers
@@ -32,14 +33,17 @@ public class CustomerDao implements Dao<Customer> {
         for (String customerLine : customerFile) {
             String[] customerData = customerLine.split(",");
             String[] customerName = customerData[0].split(" ");
+            String middName = customerName.length == 3 ? customerName[1] : null;
+            String lastName = customerName.length == 3 ? customerName[2] : customerName[1];
             customers.add(
-                    new Customer(
-                            customerName[0],
-                            customerName[1],
-                            customerData[1],
-                            customerData[2],
-                            ZonedDateTime.parse(customerData[3])
-                    )
+                    Customer.builder()
+                            .withFirstName(customerName[0])
+                            .withMiddleName(middName)
+                            .withLastName(lastName)
+                            .withPhoneNumber(customerData[1])
+                            .withAddress(customerData[2])
+                            .withJoinDate(ZonedDateTime.parse(customerData[3]))
+                            .build()
             );
         }
         return customers;
@@ -98,13 +102,14 @@ public class CustomerDao implements Dao<Customer> {
         if (!customers.remove(customer)) { return false; }
         String[] customerFields = this.customerFieldsToUpdate(customer, params);
         customers.add(
-                new Customer(
-                        customerFields[0].split(" ")[0],
-                        customerFields[0].split(" ")[1],
-                        customerFields[1],
-                        customerFields[2],
-                        ZonedDateTime.parse(customerFields[3])
-                )
+                Customer.builder()
+                        .withFirstName(customerFields[0])
+                        .withMiddleName(customerFields[1])
+                        .withLastName(customerFields[2])
+                        .withPhoneNumber(customerFields[3])
+                        .withAddress(customerFields[4])
+                        .withJoinDate(customer.getJoinDate())
+                        .build()
         );
         for (Customer customerRW : customers) { this.writeToFile(customerRW, false); }
         return true;
@@ -138,8 +143,10 @@ public class CustomerDao implements Dao<Customer> {
         fileWriter.close();
     }
 
+    // FIXME The updateFieldLogic needs to be corrected (Clearing fields and Updating fields)
     /**
-     * Helper method that returns a String[] of Customer fields to update
+     * Helper method that returns a String[] of Customer fields to update.
+     * Passing empty Strings return the original Customer fields.
      * @param customer Customer under evaluation
      * @param params String[] fields under evaluation
      * @return String[] of Customer fields
@@ -147,21 +154,19 @@ public class CustomerDao implements Dao<Customer> {
     private String[] customerFieldsToUpdate(Customer customer, String[] params) {
         String cStr = customer.toString().replaceAll(", ", ",");
         String[] cFields = cStr.substring(1, cStr.length() - 1).split(",");
+        String[] fullName = cFields[0].split(" ");
 
-        String[] name = cFields[0].split(" ");
-        for (int i = 0; i < name.length; i++) {
-            name[i] = params[i].equals("") ? name[i] : params[i];
-        }
-        String newName = "";
-        for (int i = 0; i < name.length; i++) {
-            newName = newName.concat(name[i]).concat(" ");
-        }
-
-        cFields[0] = newName.trim();
-        for (int i = 1; i < cFields.length; i++) {
-            cFields[i] = params[i].equals("") ? cFields[i] : params[i];
+        params[0] = params[0] == null ? fullName[0] : params[0];
+        if (fullName.length == 3) {
+            params[1] = params[1] == null ? fullName[1] : params[1];
+            params[2] = params[2] == null ? fullName[2] : params[2];
+        } else {
+            params[2] = params[2] == null ? fullName[1] : params[2];
         }
 
-        return cFields;
+        for (int i = 3; i < params.length; i++) {
+            params[i] = params[i] == null ? cFields[i - 2] : params[i];
+        }
+        return params;
     }
 }

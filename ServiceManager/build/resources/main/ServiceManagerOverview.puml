@@ -52,7 +52,6 @@ class Price {
 - price : BigDecimal
 }
 class Customer {
-- customerId : String
 - firstName : String
 - lastName : String
 - phoneNumber : String
