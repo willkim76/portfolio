@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="daos.CustomerDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-08T08:13:51" hostname="DESKTOP-78SPBBI" time="0.033">
+<testsuite name="daos.CustomerDaoTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2022-01-08T08:36:27" hostname="DESKTOP-78SPBBI" time="0.102">
   <properties/>
-  <testcase name="update_existingCustomerMiddleName_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.033"/>
+  <testcase name="save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer()" classname="daos.CustomerDaoTest" time="0.04"/>
+  <testcase name="save_newCustomerWithNonEmptyFile_savesNewCustomerToPersistentLayer()" classname="daos.CustomerDaoTest" time="0.007"/>
+  <testcase name="get_withValidCustomerId_returnsCustomer()" classname="daos.CustomerDaoTest" time="0.002"/>
+  <testcase name="get_withInvalidCustomerId_returnsNull()" classname="daos.CustomerDaoTest" time="0.001"/>
+  <testcase name="delete_withExistingCustomer_removesCustomerFromPersistentLayer()" classname="daos.CustomerDaoTest" time="0.007"/>
+  <testcase name="delete_withNonExistingCustomer_persistentLayerUnchanged()" classname="daos.CustomerDaoTest" time="0.001"/>
+  <testcase name="update_existingCustomerMiddleName_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.007"/>
+  <testcase name="update_existingCustomerAddress_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.008"/>
+  <testcase name="update_existingCustomerPhoneNumber_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.01"/>
+  <testcase name="update_existingCustomerFirstName_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.006"/>
+  <testcase name="update_nonExistingCustomer_persistentLayerUnchanged()" classname="daos.CustomerDaoTest" time="0.001"/>
+  <testcase name="update_existingCustomerLastName_updatesCustomerInPersistentLayer()" classname="daos.CustomerDaoTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

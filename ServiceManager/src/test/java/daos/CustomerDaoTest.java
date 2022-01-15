@@ -74,8 +74,6 @@ public class CustomerDaoTest {
         customerDao.save(customer);
 
         // THEN
-        System.out.println(customer.getCustomerId());
-        System.out.println(customer);
         assertEquals(customer, customerDao.get(customer.getCustomerId()));
     }
 
@@ -406,7 +404,6 @@ public class CustomerDaoTest {
     }
 
     @Test
-    @Order(12)
     void update_nonExistingCustomer_persistentLayerUnchanged() throws Exception {
         // GIVEN A Customer not within the persistent layer
         Customer customer = customer2;

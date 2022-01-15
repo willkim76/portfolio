@@ -1,0 +1,5 @@
+{
+  "operator"  : "ADD",
+  "operand_1" : "4 + 4j",
+  "operand_2" : "3 - 1j"
+}

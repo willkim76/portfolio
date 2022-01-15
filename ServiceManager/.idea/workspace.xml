@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e1d3be-a56b-45ae-93e9-bcdce6c45d86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AWSLambda/Calculator/src/main/java/lambdacalculator/CalculatorApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AWSLambda/Calculator/src/main/java/lambdacalculator/CalculatorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServiceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daos/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daos/CustomerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/customer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/types/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/types/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ServiceManagerOverview.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ServiceManagerOverview.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/daos/CustomerDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/daos/CustomerDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/daos/CustomerDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/daos/CustomerDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/daos.CustomerDaoTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/daos.CustomerDaoTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/daos.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/daos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-daos.CustomerDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-daos.CustomerDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/daos/CustomerDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/daos/CustomerDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/daos/InvoiceHistoryDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/daos/InvoiceHistoryDaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/data/customertest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/customertest.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../VersionControl/.idea/misc.xml" beforeDir="false" />
@@ -90,7 +101,7 @@
       <recent name="C:\Backend\portfolio\ServiceManager\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer">
+  <component name="RunManager" selected="Gradle.CustomerDaoTest">
     <configuration name="CustomerDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -198,8 +209,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer" />
         <item itemvalue="Gradle.CustomerDaoTest" />
+        <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerMiddleName_updatesCustomerInPersistentLayer" />
         <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerFirstName_updatesCustomerInPersistentLayer" />
         <item itemvalue="Gradle.CustomerDaoTest.save_newCustomerWithEmptyFile_savesNewCustomerToPersistentLayer" />
         <item itemvalue="Gradle.CustomerDaoTest.update_existingCustomerPhoneNumber_updatesCustomerInPersistentLayer" />

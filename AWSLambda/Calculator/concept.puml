@@ -1,0 +1,45 @@
+@startuml
+class Operand {
+- value_1 : BigDecimal
+- value_2 : BigDecimal
+- isComplex : boolean
++ getValue_1() : BigDecimal
++ getValue_2() : BigDecimal
++ isComplex() : boolean
+}
+class Equation {
+- expression : Expression
+- result : Operand
+- void evaluate()
+}
+class CalculatorApp {
++ calculate(Expression) : Equation
+}
+class Expression {
+- operator : Operator
+- operand_1 : Operand
+- operand_2 : Operand
+- result : Operand
++ getResult() : Operand
++ equals(Object) : boolean
+}
+class CalculatorHandler {
++ handleRequest(Expression,Context) : Equation
+}
+enum Operator {
+ADD
+SUBTRACT
+MULTIPLY
+DIVIDE
+
++ {static} evaluate() : Operand
+}
+
+RequestHandler <|.. CalculatorHandler
+CalculatorHandler *-- CalculatorApp
+
+Expression *-- Operand
+Expression *- Operator
+
+Equation *-- Expression
+@enduml
