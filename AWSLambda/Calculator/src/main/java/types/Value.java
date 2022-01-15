@@ -3,25 +3,25 @@ package types;
 import java.math.BigDecimal;
 
 /**
- * Defines the attributes of an Operand.
+ * Defines the attributes of an Value.
  */
-public class Operand {
-    private BigDecimal value_1;
-    private BigDecimal value_2;
+public class Value {
+    private BigDecimal component_1;
+    private BigDecimal component_2;
     private boolean isComplex;
 
-    private Operand(Builder builder) {
-        this.value_1 = builder.value_1;
-        this.value_2 = builder.value_2;
+    private Value(Builder builder) {
+        this.component_1 = builder.value_1;
+        this.component_2 = builder.value_2;
         this.isComplex = builder.isComplex;
     }
 
-    public BigDecimal getValue_1() {
-        return value_1;
+    public BigDecimal getComponent_1() {
+        return component_1;
     }
 
-    public BigDecimal getValue_2() {
-        return value_2;
+    public BigDecimal getComponent_2() {
+        return component_2;
     }
 
     public boolean isComplex() {
@@ -41,21 +41,21 @@ public class Operand {
             return true;
         }
 
-        Operand that = (Operand) o;
-        return this.value_1.equals(that.value_1) &&
-                this.value_2.equals(that.value_2) &&
+        Value that = (Value) o;
+        return this.component_1.equals(that.component_1) &&
+                this.component_2.equals(that.component_2) &&
                 this.isComplex == that.isComplex;
     }
 
     @Override
     public String toString() {
-        if (value_2 == null) {
-            return String.format("{Scalar: %s}", value_1);
+        if (component_2 == null) {
+            return String.format("{Scalar: %s}", component_1);
         }
         if (!isComplex) {
-            return String.format("{Vector: [%s, %s]}", value_1, value_2);
+            return String.format("{Vector: [%s, %s]}", component_1, component_2);
         }
-        return String.format("{Complex: [%s, %sj]}", value_1, value_2);
+        return String.format("{Complex: [%s, %sj]}", component_1, component_2);
     }
 
     public static class Builder {
@@ -78,11 +78,11 @@ public class Operand {
             return this;
         }
 
-        public Operand build() {
+        public Value build() {
             if (value_1 == null || value_2 == null && isComplex) {
                 throw new IllegalStateException();
             }
-            return new Operand(this);
+            return new Value(this);
         }
     }
 }

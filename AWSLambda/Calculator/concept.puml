@@ -1,15 +1,15 @@
 @startuml
-class Operand {
-- value_1 : BigDecimal
-- value_2 : BigDecimal
+class Value {
+- component_1 : BigDecimal
+- component_2 : BigDecimal
 - isComplex : boolean
-+ getValue_1() : BigDecimal
-+ getValue_2() : BigDecimal
++ getComponent_1() : BigDecimal
++ getComponent_2() : BigDecimal
 + isComplex() : boolean
 }
 class Equation {
 - expression : Expression
-- result : Operand
+- result : Value
 - void evaluate()
 }
 class CalculatorApp {
@@ -17,11 +17,8 @@ class CalculatorApp {
 }
 class Expression {
 - operator : Operator
-- operand_1 : Operand
-- operand_2 : Operand
-- result : Operand
-+ getResult() : Operand
-+ equals(Object) : boolean
+- operand_1 : Value
+- operand_2 : Value
 }
 class CalculatorHandler {
 + handleRequest(Expression,Context) : Equation
@@ -31,15 +28,15 @@ ADD
 SUBTRACT
 MULTIPLY
 DIVIDE
-
-+ {static} evaluate() : Operand
++ {static} evaluate() : Value
 }
 
 RequestHandler <|.. CalculatorHandler
 CalculatorHandler *-- CalculatorApp
 
-Expression *-- Operand
-Expression *- Operator
+Expression *- Value
+Expression *-- Operator
 
 Equation *-- Expression
+Equation *- Value
 @enduml

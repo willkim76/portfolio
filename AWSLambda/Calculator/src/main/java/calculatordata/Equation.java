@@ -1,11 +1,11 @@
 package calculatordata;
 
-import types.Operand;
+import types.Value;
 import types.Operator;
 
 public class Equation {
     private Expression expression;
-    private Operand result;
+    private Value result;
 
     public Equation(Expression expression) {
         this.expression = expression;
@@ -24,7 +24,7 @@ public class Equation {
         return expression;
     }
 
-    public Operand getResult() {
+    public Value getResult() {
         return result;
     }
 

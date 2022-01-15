@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OperandTest {
+public class ValueTest {
 
     @BeforeEach
     void setup() {}
@@ -18,11 +18,11 @@ public class OperandTest {
         BigDecimal expected = BigDecimal.valueOf(5);
 
         // WHEN
-        Operand actual = Operand.builder().withValue1(expected).build();
+        Value actual = Value.builder().withValue1(expected).build();
 
         // THEN
-        assertEquals(expected, actual.getValue_1());
-        assertNull(actual.getValue_2());
+        assertEquals(expected, actual.getComponent_1());
+        assertNull(actual.getComponent_2());
         assertFalse(actual.isComplex());
     }
 
@@ -33,14 +33,14 @@ public class OperandTest {
         BigDecimal expected_2 = BigDecimal.valueOf(-69);
 
         // WHEN
-        Operand actual = Operand.builder()
+        Value actual = Value.builder()
                 .withValue1(expected_1)
                 .withValue2(expected_2)
                 .build();
 
         // THEN
-        assertEquals(expected_1, actual.getValue_1());
-        assertEquals(expected_2, actual.getValue_2());
+        assertEquals(expected_1, actual.getComponent_1());
+        assertEquals(expected_2, actual.getComponent_2());
         assertFalse(actual.isComplex());
     }
 
@@ -51,15 +51,15 @@ public class OperandTest {
         BigDecimal expected_2 = BigDecimal.valueOf(-69);
 
         // WHEN
-        Operand actual = Operand.builder()
+        Value actual = Value.builder()
                 .withValue1(expected_1)
                 .withValue2(expected_2)
                 .withComplex(true)
                 .build();
 
         // THEN
-        assertEquals(expected_1, actual.getValue_1());
-        assertEquals(expected_2, actual.getValue_2());
+        assertEquals(expected_1, actual.getComponent_1());
+        assertEquals(expected_2, actual.getComponent_2());
         assertTrue(actual.isComplex());
     }
 
@@ -69,13 +69,13 @@ public class OperandTest {
         BigDecimal expected_1 = BigDecimal.ZERO;
 
         // WHEN
-        Operand actual = Operand.builder()
+        Value actual = Value.builder()
                 .withComplex(true)
                 .build();
 
         // THEN
-        assertEquals(expected_1, actual.getValue_1());
-        assertEquals(expected_1, actual.getValue_2());
+        assertEquals(expected_1, actual.getComponent_1());
+        assertEquals(expected_1, actual.getComponent_2());
         assertTrue(actual.isComplex());
     }
 }
