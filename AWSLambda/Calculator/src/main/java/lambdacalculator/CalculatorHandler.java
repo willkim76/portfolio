@@ -12,14 +12,17 @@ public class CalculatorHandler implements RequestHandler<Expression, Equation> {
     public Equation handleRequest(Expression theExpression, Context context) {
 
         CalculatorApp calculatorApp = new CalculatorApp();
+        try {
+            System.out.println("Expression Received: " + theExpression);
+            Equation theEquation = calculatorApp.calculate(theExpression);
 
-        System.out.println("Expression Received: " + theExpression);
+            System.out.println("The Result is: " + theEquation.getResult());
+            System.out.println("The Equation is: " + theEquation);
 
-        Equation theEquation = calculatorApp.calculate(theExpression);
-
-        System.out.println("The result of the Expression is: " + theEquation.getResult());
-        System.out.println("The Equation is: " + theEquation);
-
-        return theEquation;
+            return theEquation;
+        } catch (Exception e) {
+            System.out.println("Not A Valid Expression: " + e.getMessage());
+        }
+        return null;
     }
 }

@@ -36,31 +36,6 @@ public class Value {
         return component_2 == null;
     }
 
-    public static Value toValue(String input) {
-        String[] inputToProcess = input.split(" ");
-
-        if (inputToProcess.length == 1) {
-            return Value.builder().withComponent1(new BigDecimal(inputToProcess[0])).build();
-        } else if (inputToProcess.length == 2) {
-            String comp1 = inputToProcess[0].replace("[", "").replace(",", "");
-            String comp2 = inputToProcess[1].replace("]", "").replace(",", "");
-            return Value.builder()
-                    .withComponent1(new BigDecimal(comp1))
-                    .withComponent2(new BigDecimal(comp2))
-                    .build();
-        } else if (inputToProcess.length == 3) {
-            String comp1 = inputToProcess[0];
-            String comp2 =
-                    inputToProcess[1].concat(inputToProcess[2].substring(0, inputToProcess[2].indexOf("j")));
-            return Value.builder()
-                    .withComponent1(new BigDecimal(comp1))
-                    .withComponent2(new BigDecimal(comp2))
-                    .withComplex(true)
-                    .build();
-        }
-        return null;
-    }
-
     public static Builder builder() {
         return new Builder();
     }
@@ -88,7 +63,8 @@ public class Value {
         if (!isComplex) {
             return String.format("{Vector: [%s, %s]}", component_1, component_2);
         }
-        return String.format("{Complex: [%s, %sj]}", component_1, component_2);
+        String sign = component_2.compareTo(BigDecimal.ZERO) < 0 ? "-" : "+";
+        return String.format("{Complex: %s %s %sj}", component_1, sign, component_2.abs());
     }
 
     private boolean component2IsEqual(Value that) {

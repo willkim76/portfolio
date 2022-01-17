@@ -18,8 +18,8 @@ public class Equation {
     private void evaluate() {
         result = Operator.evaluate(
                 Operator.valueOf(expression.getOperator()),
-                Value.toValue(expression.getOperand_1()),
-                Value.toValue(expression.getOperand_2())
+                Expression.toValue(expression.getOperand_1()),
+                Expression.toValue(expression.getOperand_2())
         );
     }
 

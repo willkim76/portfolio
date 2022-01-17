@@ -71,7 +71,8 @@ public enum Operator {
             }
             case DIVIDE: {
                 checkValidMultiOperands(oprnd_1, oprnd_2);
-                result = Value.builder()
+                if (oprnd_1.isScalar() || oprnd_2.isScalar()) { }
+                    result = Value.builder()
                         .withComponent1(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_1(), HALF_UP))
                         .withComponent2(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_2(), HALF_UP))
                         .build();
@@ -79,7 +80,13 @@ public enum Operator {
             }
             case DOT: {
                 checkValidDotOperands(oprnd_1, oprnd_2);
-
+                result = Value.builder()
+                        .withComponent1(
+                                oprnd_1.getComponent_1().multiply(oprnd_2.getComponent_1())
+                                .add(oprnd_1.getComponent_2().multiply(oprnd_2.getComponent_2()))
+                        )
+                        .build();
+                break;
             }
             default: {
                 throw new IllegalArgumentException("Undefined Operation: " + operator);
@@ -108,7 +115,15 @@ public enum Operator {
         }
     }
 
-    private static void checkValidDotOperands(Value opernd_1, Value opernd_2) {
-
+    private static void checkValidDotOperands(Value oprnd_1, Value oprnd_2) {
+        if (oprnd_1.isScalar() || oprnd_2.isScalar()) {
+            String errArg1 =
+                    oprnd_1.isScalar() ? "Scalar Value" : oprnd_1.isComplex() ? "Complex Value" : "Vector Value";
+            String errArg2 =
+                    oprnd_2.isScalar() ? "Scalar Value" : oprnd_2.isComplex() ? "Complex Value" : "Vector Value";
+            throw new IllegalArgumentException(
+                    String.format("Cannot DOT a %s with a %s", errArg1, errArg2)
+            );
+        }
     }
 }

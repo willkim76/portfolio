@@ -3,10 +3,11 @@ package calculatordata;
 import types.Operator;
 import types.Value;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
- * The String representation of two Value operands and an Operator.
+ * The raw String representation of two Value operands and an Operator.
  *
  */
 public class Expression {
@@ -46,6 +47,34 @@ public class Expression {
         return oprnd_2;
     }
 
+    public static Value toValue(String input) {
+        String[] inputToProcess = input.split(" ");
+
+        if (inputToProcess.length == 1) {
+            return Value.builder().withComponent1(new BigDecimal(inputToProcess[0])).build();
+        } else if (inputToProcess.length == 2) {
+            String comp1 = inputToProcess[0].replace("[", "").replace(",", "");
+            String comp2 = inputToProcess[1].replace("]", "").replace(",", "");
+            return Value.builder()
+                    .withComponent1(new BigDecimal(comp1))
+                    .withComponent2(new BigDecimal(comp2))
+                    .build();
+        } else if (inputToProcess.length == 3) {
+            if (!inputToProcess[1].equals("+") && !inputToProcess[1].equals("-")) {
+                throw new IllegalArgumentException("Invalid Char: " + inputToProcess[1] + " in Complex Value");
+            }
+            String comp1 = inputToProcess[0];
+            String comp2 =
+                    inputToProcess[1].concat(inputToProcess[2].substring(0, inputToProcess[2].indexOf("j")));
+            return Value.builder()
+                    .withComponent1(new BigDecimal(comp1))
+                    .withComponent2(new BigDecimal(comp2))
+                    .withComplex(true)
+                    .build();
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || !this.getClass().equals(o.getClass())) { return false; }
@@ -63,6 +92,6 @@ public class Expression {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s", Value.toValue(oprnd_1), Operator.valueOf(operator), Value.toValue(oprnd_2));
+        return String.format("%s %s %s", Expression.toValue(oprnd_1), Operator.valueOf(operator), Expression.toValue(oprnd_2));
     }
 }
