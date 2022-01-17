@@ -1,5 +1,20 @@
 {
   "operator"  : "ADD",
-  "operand_1" : "4 + 4j",
-  "operand_2" : "3 - 1j"
+  "oprnd_1" : "4 + 4j",
+  "oprnd_2" : "3 - 1j"
+}
+{
+  "operator"  : "ADD",
+  "oprnd_1" : "[4, 4]",
+  "oprnd_2" : "[3, 1]"
+}
+{
+  "operator"  : "MULTIPLY",
+  "oprnd_1" : "6",
+  "oprnd_2" : "[3, 1]"
+}
+{
+  "operator"  : "MULTIPLY",
+  "oprnd_1" : "6",
+  "oprnd_2" : "-3 - 10j"
 }

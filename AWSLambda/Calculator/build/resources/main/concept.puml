@@ -23,6 +23,9 @@ class Expression {
 class CalculatorHandler {
 + handleRequest(Expression,Context) : Equation
 }
+class "RequestHandler<I,O>" {
++ handleRequest(I,Context) : O
+}
 enum Operator {
 ADD
 SUBTRACT
@@ -31,7 +34,7 @@ DIVIDE
 + {static} evaluate() : Value
 }
 
-RequestHandler <|.. CalculatorHandler
+"RequestHandler<I,O>" <|.. CalculatorHandler
 CalculatorHandler *-- CalculatorApp
 
 Expression *- Value

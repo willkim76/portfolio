@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="types.OperandTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-14T22:14:05" hostname="DESKTOP-78SPBBI" time="0.018">
-  <properties/>
-  <testcase name="isComplex_usingNoBigDecimalValues_createsDefaultOperand()" classname="types.OperandTest" time="0.018"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

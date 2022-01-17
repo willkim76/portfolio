@@ -18,7 +18,7 @@ public class ValueTest {
         BigDecimal expected = BigDecimal.valueOf(5);
 
         // WHEN
-        Value actual = Value.builder().withValue1(expected).build();
+        Value actual = Value.builder().withComponent1(expected).build();
 
         // THEN
         assertEquals(expected, actual.getComponent_1());
@@ -34,8 +34,8 @@ public class ValueTest {
 
         // WHEN
         Value actual = Value.builder()
-                .withValue1(expected_1)
-                .withValue2(expected_2)
+                .withComponent1(expected_1)
+                .withComponent2(expected_2)
                 .build();
 
         // THEN
@@ -52,8 +52,8 @@ public class ValueTest {
 
         // WHEN
         Value actual = Value.builder()
-                .withValue1(expected_1)
-                .withValue2(expected_2)
+                .withComponent1(expected_1)
+                .withComponent2(expected_2)
                 .withComplex(true)
                 .build();
 

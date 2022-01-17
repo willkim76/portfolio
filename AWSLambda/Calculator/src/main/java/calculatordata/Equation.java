@@ -3,6 +3,9 @@ package calculatordata;
 import types.Value;
 import types.Operator;
 
+/**
+ * Equation
+ */
 public class Equation {
     private Expression expression;
     private Value result;
@@ -14,9 +17,9 @@ public class Equation {
 
     private void evaluate() {
         result = Operator.evaluate(
-                expression.getOperator(),
-                expression.getOperand_1(),
-                expression.getOperand_2()
+                Operator.valueOf(expression.getOperator()),
+                Value.toValue(expression.getOperand_1()),
+                Value.toValue(expression.getOperand_2())
         );
     }
 
@@ -40,6 +43,6 @@ public class Equation {
 
     @Override
     public String toString() {
-        return String.format("");
+        return String.format("%s = %s", this.result, this.expression);
     }
 }

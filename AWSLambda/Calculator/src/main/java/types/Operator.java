@@ -1,71 +1,114 @@
 package types;
 
+import static java.math.RoundingMode.HALF_UP;
+
 /**
- * Defines the behavior of the Value type. Performs the mathematical operations of Scalars,
- * Vectors, and Complex Numbers.
+ * Defines the behavior of the Value type, specifically the mathematical operations of Scalars,
+ * 2D Vectors, and Complex Numbers and the rules of operation.
  */
 public enum Operator {
     ADD,
     SUBTRACT,
     MULTIPLY,
-    DIVIDE;
+    DIVIDE,
+    DOT;
 
-    // TODO: Vector/Complex and Scalar operation initial logic needs to be refined.
-    public static Value evaluate(Operator operator, Value value_1, Value value_2) {
+    /**
+     * Performs the mathematical operation of Scalars, 2D Vectors, and Complex Numbers
+     * @param operator - Operator, the operation to apply to operands
+     * @param oprnd_1 - Value the first operand
+     * @param oprnd_2 - Value the second operand
+     * @return The Value result of the operation
+     * @throws IllegalArgumentException
+     */
+    public static Value evaluate(Operator operator, Value oprnd_1, Value oprnd_2) {
         Value result = null;
         switch (operator) {
             case ADD: {
-                checkValidAddSubtraction(value_1, value_2);
-                result = Value.builder()
-                        .withValue1(value_1.getComponent_1().add(value_2.getComponent_2()))
-                        .withValue2(value_1.getComponent_2().add(value_2.getComponent_2()))
-                        .withComplex(value_1.isComplex())
+                checkValidAddSubOperands(ADD, oprnd_1, oprnd_2);
+
+                Value.Builder resultValue = Value.builder();
+                if (!oprnd_1.isScalar()) {
+                    resultValue.withComponent2(oprnd_1.getComponent_2().add(oprnd_2.getComponent_2()));
+                }
+                result = resultValue.withComponent1(oprnd_1.getComponent_1().add(oprnd_2.getComponent_1()))
+                        .withComplex(oprnd_1.isComplex())
                         .build();
                 break;
             }
             case SUBTRACT: {
-                checkValidAddSubtraction(value_1, value_2);
-                result = Value.builder()
-                        .withValue1(value_1.getComponent_1().subtract(value_2.getComponent_2()))
-                        .withValue2(value_1.getComponent_2().subtract(value_2.getComponent_2()))
-                        .withComplex(value_1.isComplex())
+                checkValidAddSubOperands(SUBTRACT, oprnd_1, oprnd_2);
+
+                Value.Builder resultValue = Value.builder();
+                if (!oprnd_1.isScalar()) {
+                    resultValue.withComponent2(oprnd_1.getComponent_2().subtract(oprnd_2.getComponent_2()));
+                }
+                result = resultValue.withComponent1(oprnd_1.getComponent_1().subtract(oprnd_2.getComponent_1()))
+                        .withComplex(oprnd_1.isComplex())
                         .build();
                 break;
             }
             case MULTIPLY: {
-                checkValidMultiplication(value_1, value_2);
-                result = Value.builder()
-                        .withValue1(value_1.getComponent_1().multiply(value_2.getComponent_2()))
-                        .withValue2(value_1.getComponent_2().multiply(value_2.getComponent_2()))
-                        .withComplex(value_1.isComplex())
-                        .build();
+                checkValidMultiOperands(oprnd_1, oprnd_2);
+                if (oprnd_1.isScalar() && oprnd_2.isScalar()) {
+                    result = Value.builder()
+                            .withComponent1(oprnd_1.getComponent_1().multiply(oprnd_2.getComponent_1()))
+                            .build();
+                } else if (!oprnd_1.isScalar()) {
+                    result = Value.builder()
+                            .withComponent1(oprnd_1.getComponent_1().multiply(oprnd_2.getComponent_1()))
+                            .withComponent2(oprnd_1.getComponent_2().multiply(oprnd_2.getComponent_1()))
+                            .withComplex(oprnd_1.isComplex())
+                            .build();
+                } else if (!oprnd_2.isScalar()){
+                    result = Value.builder()
+                            .withComponent1(oprnd_2.getComponent_1().multiply(oprnd_1.getComponent_1()))
+                            .withComponent2(oprnd_2.getComponent_2().multiply(oprnd_1.getComponent_1()))
+                            .withComplex(oprnd_2.isComplex())
+                            .build();
+                }
                 break;
             }
             case DIVIDE: {
-                checkValidDivision(value_1, value_2);
+                checkValidMultiOperands(oprnd_1, oprnd_2);
                 result = Value.builder()
-                        .withValue1(value_1.getComponent_1().divide(value_2.getComponent_1()))
-                        .withValue2(value_1.getComponent_1().divide(value_2.getComponent_2()))
+                        .withComponent1(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_1(), HALF_UP))
+                        .withComponent2(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_2(), HALF_UP))
                         .build();
                 break;
             }
+            case DOT: {
+                checkValidDotOperands(oprnd_1, oprnd_2);
+
+            }
             default: {
-                throw new IllegalArgumentException("Undefined Operator");
+                throw new IllegalArgumentException("Undefined Operation: " + operator);
             }
         }
         return result;
     }
 
-    // TODO Need to update operation check
-    private static void checkValidAddSubtraction(Value value_1, Value value_2) {
-        throw new IllegalArgumentException("Cannot ADD Scalar to Vector");
+    private static void checkValidAddSubOperands(Operator operator, Value oprnd_1, Value oprnd_2) {
+        if (oprnd_1.isScalar() != oprnd_2.isScalar() || oprnd_1.isComplex() != oprnd_2.isComplex()) {
+            String errArg1 = oprnd_1.isScalar() || oprnd_2.isScalar() ? "Scalar Value" : "Vector Value";
+            String errArg2 = oprnd_1.isComplex() || oprnd_2.isComplex() ? "Complex Value" : "Vector Value";
+            throw new IllegalArgumentException(
+                    String.format("Cannot %s a %s to a %s", operator, errArg1, errArg2)
+            );
+        }
     }
 
-    private static void checkValidMultiplication(Value value_1, Value value_2) {
-        throw new IllegalArgumentException("Cannot");
+    private static void checkValidMultiOperands(Value oprnd_1, Value oprnd_2) {
+        if (!oprnd_1.isScalar() && !oprnd_2.isScalar()) {
+            String errArg1 = oprnd_1.isComplex() ? "Complex Value" : "Vector Value";
+            String errArg2 = oprnd_2.isComplex() ? "Complex Value" : "Vector Value";
+            throw new IllegalArgumentException(
+                    String.format("Cannot MULTIPLY a %s with a %s", errArg1, errArg2)
+            );
+        }
     }
 
-    private static void checkValidDivision(Value value_1, Value value_2) {
-        throw new IllegalArgumentException("");
+    private static void checkValidDotOperands(Value opernd_1, Value opernd_2) {
+
     }
 }
