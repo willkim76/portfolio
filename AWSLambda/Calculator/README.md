@@ -4,5 +4,4 @@ Numbers via AWS Lambda. The Object-Oriented approach segments objects into Value
 and Equations. The number of arguments used in instantiating a Value object determines whether the Operand 
 is a Scalar, a 2D Vector, or a Complex Number. 
 
-###
 
