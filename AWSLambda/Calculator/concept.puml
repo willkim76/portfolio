@@ -13,7 +13,7 @@ class Equation {
 - void evaluate()
 }
 class CalculatorApp {
-+ calculate(Expression) : Equation
++ evaluate(Expression) : Equation
 }
 class Expression {
 - operator : Operator

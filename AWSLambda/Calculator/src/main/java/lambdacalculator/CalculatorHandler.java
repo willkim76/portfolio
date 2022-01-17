@@ -14,7 +14,7 @@ public class CalculatorHandler implements RequestHandler<Expression, Equation> {
         CalculatorApp calculatorApp = new CalculatorApp();
         try {
             System.out.println("Expression Received: " + theExpression);
-            Equation theEquation = calculatorApp.calculate(theExpression);
+            Equation theEquation = calculatorApp.evaluate(theExpression);
 
             System.out.println("The Result is: " + theEquation.getResult());
             System.out.println("The Equation is: " + theEquation);

@@ -8,7 +8,7 @@ import calculatordata.Equation;
  */
 public class CalculatorApp {
 
-    public Equation calculate(Expression expression) {
+    public Equation evaluate(Expression expression) {
         System.out.println("Evaluating the Expression: " + expression);
         return new Equation(expression);
     }
