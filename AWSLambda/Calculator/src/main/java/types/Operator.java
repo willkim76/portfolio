@@ -70,12 +70,18 @@ public enum Operator {
                 break;
             }
             case DIVIDE: {
-                checkValidMultiOperands(oprnd_1, oprnd_2);
-                if (oprnd_1.isScalar() || oprnd_2.isScalar()) { }
+                checkValidDivideOperands(oprnd_1, oprnd_2);
+                if (oprnd_1.isScalar()) {
                     result = Value.builder()
-                        .withComponent1(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_1(), HALF_UP))
-                        .withComponent2(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_2(), HALF_UP))
-                        .build();
+                            .withComponent1(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_1(), 3, HALF_UP))
+                            .build();
+                } else {
+                    result = Value.builder()
+                            .withComponent1(oprnd_1.getComponent_1().divide(oprnd_2.getComponent_1(), 3, HALF_UP))
+                            .withComponent2(oprnd_1.getComponent_2().divide(oprnd_2.getComponent_1(), 3, HALF_UP))
+                            .withComplex(oprnd_1.isComplex())
+                            .build();
+                }
                 break;
             }
             case DOT: {
@@ -123,6 +129,18 @@ public enum Operator {
                     oprnd_2.isScalar() ? "Scalar Value" : oprnd_2.isComplex() ? "Complex Value" : "Vector Value";
             throw new IllegalArgumentException(
                     String.format("Cannot DOT a %s with a %s", errArg1, errArg2)
+            );
+        }
+    }
+
+    private static void checkValidDivideOperands(Value oprnd_1, Value oprnd_2) {
+        if (!oprnd_2.isScalar()) {
+            String errArg1 =
+                    oprnd_1.isScalar() ? "Scalar Value" : oprnd_1.isComplex() ? "Complex Value" : "Vector Value";
+            String errArg2 =
+                    oprnd_2.isComplex() ? "Complex Value" : "Vector Value";
+            throw new IllegalArgumentException(
+                    String.format("Cannot DIVIDE a %s with a %s", errArg1, errArg2)
             );
         }
     }

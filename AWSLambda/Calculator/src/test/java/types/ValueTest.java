@@ -13,7 +13,7 @@ public class ValueTest {
     void setup() {}
 
     @Test
-    void withValue_usingSingleBigDecimalValue_createsAnOperand() {
+    void withValue_usingSingleBigDecimalValue_createsAValue() {
         // GIVEN
         BigDecimal expected = BigDecimal.valueOf(5);
 
@@ -27,7 +27,7 @@ public class ValueTest {
     }
 
     @Test
-    void withValue_usingTwoBigDecimalValues_createsAnOperand() {
+    void withValue_usingTwoBigDecimalValues_createsAValue() {
         // GIVEN
         BigDecimal expected_1 = BigDecimal.valueOf(4.20);
         BigDecimal expected_2 = BigDecimal.valueOf(-69);
@@ -45,7 +45,7 @@ public class ValueTest {
     }
 
     @Test
-    void withValueAndIsComplex_usingTwoBigDecimalValues_createsAnOperand() {
+    void withValueAndIsComplex_usingTwoBigDecimalValues_createsAValue() {
         // GIVEN
         BigDecimal expected_1 = BigDecimal.valueOf(4.20);
         BigDecimal expected_2 = BigDecimal.valueOf(-69);
@@ -64,18 +64,36 @@ public class ValueTest {
     }
 
     @Test
-    void isComplex_usingNoBigDecimalValues_createsDefaultOperand() {
-        // GIVEN
-        BigDecimal expected_1 = BigDecimal.ZERO;
+    void build_withNoComponents_throwsIllegalStateException() {
+        // GIVEN Attempting to build a Value without any components
+        Value.Builder actual = Value.builder().withComplex(true);
 
         // WHEN
-        Value actual = Value.builder()
-                .withComplex(true)
-                .build();
+        // THEN Throws IllegalStateException
+        assertThrows(IllegalStateException.class, actual::build);
+    }
 
-        // THEN
-        assertEquals(expected_1, actual.getComponent_1());
-        assertEquals(expected_1, actual.getComponent_2());
-        assertTrue(actual.isComplex());
+    @Test
+    void build_withOnlySecondComponent_throwsIllegalStateException() {
+        // GIVEN Attempting to build a Value with only a second components
+        Value.Builder actual = Value.builder()
+                .withComponent2(BigDecimal.TEN)
+                .withComplex(true);
+
+        // WHEN
+        // THEN Throws IllegalStateException
+        assertThrows(IllegalStateException.class, actual::build);
+    }
+
+    @Test
+    void build_withOnlyFirstComponentsAndWithComplex_throwsIllegalStateException() {
+        // GIVEN Attempting to build a Value with first component and with complex
+        Value.Builder actual = Value.builder()
+                .withComponent1(BigDecimal.TEN)
+                .withComplex(true);
+
+        // WHEN
+        // THEN Throws IllegalStateException
+        assertThrows(IllegalStateException.class, actual::build);
     }
 }

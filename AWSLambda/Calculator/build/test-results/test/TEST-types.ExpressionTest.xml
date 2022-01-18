@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="types.ExpressionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-17T01:50:22" hostname="DESKTOP-78SPBBI" time="0.017">
-  <properties/>
-  <testcase name="constructor_addWithTwoScalars_createsExpression()" classname="types.ExpressionTest" time="0.017"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

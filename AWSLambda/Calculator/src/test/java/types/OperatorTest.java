@@ -195,4 +195,47 @@ public class OperatorTest {
                 )
         );
     }
+
+    @Test
+    void evaluate_divideUsingTwoScalars_createsANewScalar() {
+        // GIVEN
+        Value expectedValue = Value.builder().withComponent1(BigDecimal.valueOf(2)).build();
+        Operator operation = Operator.DIVIDE;
+
+        // WHEN
+        Value actualValue = Operator.evaluate(operation, scalar_2, scalar_1);
+
+        // THEN
+        assertEquals(expectedValue, actualValue,
+                String.format(
+                        "Expected a %s from %s operation but was unexpectedly: %s",
+                        expectedValue,
+                        operation,
+                        actualValue
+                )
+        );
+    }
+
+    @Test
+    void evaluate_divideUsingVectorAndScalar_createsANewScalar() {
+        // GIVEN
+        Value expectedValue = Value.builder()
+                .withComponent1(BigDecimal.valueOf(1))
+                .withComponent2(BigDecimal.valueOf(2))
+                .build();
+        Operator operation = Operator.DIVIDE;
+
+        // WHEN
+        Value actualValue = Operator.evaluate(operation, vector_1, scalar_1);
+
+        // THEN
+        assertEquals(expectedValue, actualValue,
+                String.format(
+                        "Expected a %s from %s operation but was unexpectedly: %s",
+                        expectedValue,
+                        operation,
+                        actualValue
+                )
+        );
+    }
 }

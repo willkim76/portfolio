@@ -3,9 +3,7 @@ class Value {
 - component_1 : BigDecimal
 - component_2 : BigDecimal
 - isComplex : boolean
-+ getComponent_1() : BigDecimal
-+ getComponent_2() : BigDecimal
-+ isComplex() : boolean
++ isScalar() : boolean
 }
 class Equation {
 - expression : Expression
@@ -16,9 +14,10 @@ class CalculatorApp {
 + evaluate(Expression) : Equation
 }
 class Expression {
-- operator : Operator
-- operand_1 : Value
-- operand_2 : Value
+- operator : String
+- operand_1 : String
+- operand_2 : String
++ {static}toValue(String) : Value
 }
 class CalculatorHandler {
 + handleRequest(Expression,Context) : Equation
@@ -31,15 +30,12 @@ ADD
 SUBTRACT
 MULTIPLY
 DIVIDE
-+ {static} evaluate() : Value
++ {static} evaluate(Operator,Value,Value) : Value
 }
 
 "RequestHandler<I,O>" <|.. CalculatorHandler
 CalculatorHandler *-- CalculatorApp
 
-Expression *- Value
-Expression *-- Operator
-
-Equation *-- Expression
-Equation *- Value
+Equation *- Expression
+Equation *-- Value
 @enduml

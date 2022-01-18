@@ -1,6 +1,7 @@
 package types;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Defines the attributes of a Value. A Value can be a Scalar, 2D Vector, or a Complex
@@ -11,7 +12,6 @@ import java.math.BigDecimal;
 public class Value {
     private BigDecimal component_1;
     private BigDecimal component_2;
-    private boolean isScalar;
     private boolean isComplex;
 
     private Value(Builder builder) {
@@ -50,8 +50,8 @@ public class Value {
         }
 
         Value that = (Value) o;
-        return this.component_1.equals(that.component_1) &&
-                this.component2IsEqual(that) &&
+        return Objects.equals(this.component_1, that.component_1) &&
+                Objects.equals(this.component_2, that.component_2) &&
                 this.isComplex == that.isComplex;
     }
 
@@ -65,12 +65,6 @@ public class Value {
         }
         String sign = component_2.compareTo(BigDecimal.ZERO) < 0 ? "-" : "+";
         return String.format("{Complex: %s %s %sj}", component_1, sign, component_2.abs());
-    }
-
-    private boolean component2IsEqual(Value that) {
-        if (this.component_2 == null && that.component_2 == null) { return true; }
-        if (this.component_2 == null || that.component_2 == null) { return false; }
-        return this.component_2.equals(that.component_2);
     }
 
     public static class Builder {
