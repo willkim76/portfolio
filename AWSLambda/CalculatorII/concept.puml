@@ -1,0 +1,42 @@
+@startuml
+class CalculatorHandler {
++ Equation handleRequest(Expression,Context)
+}
+class Scalar {
+- component_real : BigDecimal
++ getComponent_real() : BigDecimal
+}
+interface Value {
++ add(Value) : Value
++ subtract(Value) : Value
++ divide(Value) : Value
++ multiply(Value) : Value
+
+}
+class Vector {
+- components : List<BigDecimal>
++ getComponents() : List<BigDecimal>
++ numOfDimensions() : int
++ dot(Value) : Scalar
++ cross(Value) : Vector
+}
+class Expression {
+}
+class ComplexScalar {
+- component_imag BigDecimal
++ getComponent_real() : BigDecimal
++ getComponent_imag() : BigDecimal
+}
+class Calculator {
+}
+class Equation {
+}
+
+
+RequestHandler <|.. CalculatorHandler
+Value <|.. Scalar
+Value <|.. Vector
+Scalar <|-- ComplexScalar
+
+Expression *-- Value
+@enduml

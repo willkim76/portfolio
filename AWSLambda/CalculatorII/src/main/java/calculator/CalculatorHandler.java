@@ -11,6 +11,6 @@ public class CalculatorHandler implements RequestHandler<Expression, Equation> {
     public Equation handleRequest(Expression expression, Context context) {
         Calculator calculator = new Calculator();
 
-        return null;
+        return calculator.evaluate(expression);
     }
 }

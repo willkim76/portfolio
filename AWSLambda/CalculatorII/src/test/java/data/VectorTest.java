@@ -1,5 +1,6 @@
 package data;
 
+import exceptions.IllegalValueException;
 import org.junit.jupiter.api.Test;
 import types.Vector;
 
@@ -45,6 +46,21 @@ public class VectorTest {
     }
 
     @Test
+    void getComponents_withAThreeDimensionalVector_throwsIllegalValueException() {
+        // GIVEN
+        BigDecimal component_x = BigDecimal.valueOf(13);
+        BigDecimal component_y = BigDecimal.valueOf(37);
+        BigDecimal component_z = BigDecimal.valueOf(5);
+
+        // WHEN
+        Vector vector = new Vector(component_x, component_y, component_z);
+
+        // THEN
+        assertEquals(3, vector.getComponents().size());
+
+    }
+
+    @Test
     void vectorAdd_withTwo2DVectors_aVectorIsReturned() {
         // GIVEN
         Vector vector_1 = new Vector(BigDecimal.valueOf(2), BigDecimal.valueOf(3));
@@ -77,5 +93,17 @@ public class VectorTest {
         assertEquals(BigDecimal.TEN, vector.getComponents().get(0));
         assertEquals(BigDecimal.TEN, vector.getComponents().get(1));
         assertEquals(BigDecimal.TEN, vector.getComponents().get(2));
+    }
+
+    @Test
+    void vectorAdd_withVectorsWithDimensionalMismatch_throwsIllegalValueException() {
+        // GIVEN
+        Vector vector_1 =
+                new Vector(BigDecimal.valueOf(2), BigDecimal.valueOf(3), BigDecimal.valueOf(9));
+        Vector vector_2 =
+                new Vector(BigDecimal.valueOf(8), BigDecimal.valueOf(7));
+
+        // WHEN THEN
+        assertThrows(IllegalArgumentException.class, () -> vector_1.add(vector_2));
     }
 }

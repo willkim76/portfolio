@@ -9,6 +9,4 @@ public interface Value {
     public Value divide(Value value);
 
     public Value multiply(Value value);
-
-    public Value dot(Value value);
 }
