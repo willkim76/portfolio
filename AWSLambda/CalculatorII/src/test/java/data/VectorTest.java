@@ -1,6 +1,6 @@
 package data;
 
-import exceptions.IllegalValueException;
+import exceptions.IllegalOperandException;
 import org.junit.jupiter.api.Test;
 import types.Vector;
 
@@ -18,7 +18,14 @@ public class VectorTest {
 
         // WHEN
         // THEN
-        Vector vector = new Vector(component_x, component_y);
+        Vector vector = null;
+        try {
+            vector = new Vector(component_x, component_y);
+        } catch (Exception e) {
+            fail("Unexpectedly threw " + e.getClass().getSimpleName());
+        }
+        assertNotNull(vector, "Unexpectedly did not instantiate a Vector");
+
     }
 
     @Test
@@ -30,7 +37,13 @@ public class VectorTest {
 
         // WHEN
         // THEN
-        Vector vector = new Vector(component_x, component_y, component_z);
+        Vector vector = null;
+        try {
+            vector = new Vector(component_x, component_y, component_z);
+        } catch (Exception e) {
+            fail("Unexpectedly threw " + e.getClass().getSimpleName());
+        }
+        assertNotNull(vector, "Unexpectedly did not instantiate a Vector");
     }
 
     @Test
@@ -42,7 +55,15 @@ public class VectorTest {
 
         // WHEN
         // THEN
-        Vector vector = new Vector(component_x, component_y, component_z);
+        Vector vector = null;
+        try {
+            vector = new Vector(component_x, component_y, component_z);
+        } catch (Exception e) {
+            assertEquals(IllegalOperandException.class,
+                    e.getClass(),
+                    "Unexpectedly threw " + e.getClass().getSimpleName());
+        }
+        assertNull(vector, "Unexpectedly instantiated a Vector");
     }
 
     @Test
@@ -103,7 +124,8 @@ public class VectorTest {
         Vector vector_2 =
                 new Vector(BigDecimal.valueOf(8), BigDecimal.valueOf(7));
 
-        // WHEN THEN
+        // WHEN
+        // THEN
         assertThrows(IllegalArgumentException.class, () -> vector_1.add(vector_2));
     }
 }

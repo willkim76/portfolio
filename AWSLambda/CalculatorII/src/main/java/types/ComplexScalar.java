@@ -2,14 +2,8 @@ package types;
 
 import java.math.BigDecimal;
 
-public class ComplexScalar extends Scalar implements Value {
+public class ComplexScalar extends Scalar implements Operand {
     private final BigDecimal component_imag;
-
-    public ComplexScalar(String component_real, String component_imag) {
-        this(BigDecimal.valueOf(Long.parseLong(component_real)),
-                BigDecimal.valueOf(Long.parseLong(component_imag))
-        );
-    }
 
     public ComplexScalar(BigDecimal component_real, BigDecimal component_imag) {
         super(component_real);
@@ -26,10 +20,10 @@ public class ComplexScalar extends Scalar implements Value {
     }
 
     @Override
-    public ComplexScalar add(Value value) {
-        if (value == null ) { throw new IllegalArgumentException(); }
+    public ComplexScalar add(Operand operand) {
+        if (operand == null ) { throw new IllegalArgumentException(); }
 
-        if (value.getClass() == Vector.class) { throw new IllegalArgumentException(); }
+        if (operand.getClass() == Vector.class) { throw new IllegalArgumentException(); }
 
 
 
@@ -37,17 +31,17 @@ public class ComplexScalar extends Scalar implements Value {
     }
 
     @Override
-    public ComplexScalar subtract(Value value) {
+    public ComplexScalar subtract(Operand operand) {
         return null;
     }
 
     @Override
-    public ComplexScalar divide(Value value) {
+    public ComplexScalar divide(Operand operand) {
         return null;
     }
 
     @Override
-    public ComplexScalar multiply(Value value) {
+    public ComplexScalar multiply(Operand operand) {
         return null;
     }
 }

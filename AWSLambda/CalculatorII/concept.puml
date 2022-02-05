@@ -6,24 +6,24 @@ class Scalar {
 - component_real : BigDecimal
 + getComponent_real() : BigDecimal
 }
-interface Value {
-+ add(Value) : Value
-+ subtract(Value) : Value
-+ divide(Value) : Value
-+ multiply(Value) : Value
+interface Operand {
++ add(Operand) : Operand
++ subtract(Operand) : Operand
++ divide(Operand) : Operand
++ multiply(Operand) : Operand
 
 }
 class Vector {
 - components : List<BigDecimal>
 + getComponents() : List<BigDecimal>
 + numOfDimensions() : int
-+ dot(Value) : Scalar
-+ cross(Value) : Vector
++ dot(Operand) : Scalar
++ cross(Operand) : Vector
 }
 class Expression {
 }
 class ComplexScalar {
-- component_imag BigDecimal
+- component_imag : BigDecimal
 + getComponent_real() : BigDecimal
 + getComponent_imag() : BigDecimal
 }
@@ -32,11 +32,10 @@ class Calculator {
 class Equation {
 }
 
-
 RequestHandler <|.. CalculatorHandler
-Value <|.. Scalar
-Value <|.. Vector
+Operand <|.. Scalar
+Operand <|.. Vector
 Scalar <|-- ComplexScalar
 
-Expression *-- Value
+CalculatorHandler *-- Calculator
 @enduml
